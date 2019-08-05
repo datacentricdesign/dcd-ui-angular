@@ -18,6 +18,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ui-angular": [
+        "dist/ui-angular"
+      ],
+      "ui-angular/*": [
+        "dist/ui-angular/*"
+      ]
+    }
   }
 }
