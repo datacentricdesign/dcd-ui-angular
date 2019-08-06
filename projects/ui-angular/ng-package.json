@@ -7,7 +7,11 @@
       "primeng/slider" : "slider",
       "ng2-charts" : "ng2Charts",
       "@swimlane/ngx-charts":"ngxCharts",
-      "ngx-clipboard": "ngxClipboard"
+      "@swimlane/ngx-charts/release/utils":"ngxChartsReleaseUtils",
+      "ngx-clipboard": "ngxClipboard",
+      "d3-scale":"d3Scale",
+      "d3-shape":"d3shape",
+      "web-google-maps":"webGoogleMaps"
     }
   },
   "whitelistedNonPeerDependencies": [
@@ -18,6 +22,7 @@
     "@swimlane/ngx-charts",
     "ngx-clipboard",
     "d3-scale",
-    "d3-shape"
+    "d3-shape",
+    "web-google-maps"
   ]
 }

@@ -127,7 +127,24 @@
           "options": {
             "tsConfig": "projects/ui-angular/tsconfig.lib.json",
             "project": "projects/ui-angular/ng-package.json"
-          }
+          },
+          "assets": [
+            {
+              "glob": "webgooglemaps.js",
+              "input": "node_modules/web-google-maps/dist",
+              "output": "./"
+            },
+            {
+              "glob": "webgooglemaps/*",
+              "input": "node_modules/web-google-maps/dist",
+              "output": "./"
+            }
+          ],
+          "styles": [
+          ],
+          "scripts": [
+
+          ]
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 
-import { UiAngularComponent } from './ui-angular.component';
-import { RadarChartComponent } from './radar-chart/radar-chart.component';
-
 //prime-ng
 import {SliderModule} from 'primeng/slider';
 
@@ -17,11 +14,24 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 //ngx-clipboard 
 import { ClipboardModule } from 'ngx-clipboard';
 
+// Google Maps
+import { CUSTOM_ELEMENTS_SCHEMA} from '@angular/core'
+
+//Components
+import { UiAngularComponent } from './ui-angular.component';
+import { RadarChartComponent } from './radar-chart/radar-chart.component';
+import { DoubleAxisChartComponent } from './double-axis-chart/double-axis-chart.component';
+import { DoubleDimensionsChartComponent } from './double-dimensions-chart/double-dimensions-chart.component';
+import { GoogleMapsComponent } from './google-maps/google-maps.component';
+
 @NgModule({
   declarations: [
     UiAngularComponent, 
     RadarChartComponent, 
-    LineChartComponent
+    LineChartComponent, 
+    DoubleAxisChartComponent, 
+    DoubleDimensionsChartComponent, 
+    GoogleMapsComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +43,10 @@ import { ClipboardModule } from 'ngx-clipboard';
   exports: [
     UiAngularComponent,
     RadarChartComponent,
-    LineChartComponent
-  ]
+    LineChartComponent,
+    DoubleDimensionsChartComponent,
+    GoogleMapsComponent
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class UiAngularModule { }
