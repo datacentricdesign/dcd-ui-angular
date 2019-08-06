@@ -96,13 +96,14 @@ Diplay a double axis line chart with the property values, dimensions.
 
 1. Call `defineCustomElements(window)` from `main.ts`
 
-Diplay a google maps of the entity with the property values. 
+Diplay a google maps of the entity with the property values, dimensions. 
 We need also a google map API key `apiKey` and a boolean `checked` if you want to refresh the map each changes (for example for real time value) else there is a button refresh.
 
 ```html
 <lib-google-maps 
     [property_values] = "values"
-    [property_entity_id] ="ChildProperty.entity_id"  
+    [property_dimensions] ="property.dimensions" 
+    [property_entity_id] ="property.entity_id"  
     [apiKey]="XXXXXXXXXXXXXXXX" 
     [checked]="false">
 </lib-google-maps>

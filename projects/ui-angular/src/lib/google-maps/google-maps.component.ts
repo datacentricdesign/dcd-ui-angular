@@ -9,6 +9,7 @@ export class GoogleMapsComponent implements OnInit {
 
     @Input() property_entity_id:string
     @Input() property_values : any[]
+    @Input() property_dimensions:any[]
     @Input() apiKey: string;
     @Input() checked: boolean;
 
