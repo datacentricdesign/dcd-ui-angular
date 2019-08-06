@@ -1,14 +1,14 @@
 # UiAngular
 
-## Install & import UI angular module
+## Installation
 
-1. - `npm install @datacentricdesign/ui-angular`
+- `npm install @datacentricdesign/ui-angular`
 
-2. Import import UiAngularModule in your app.module 
+### Import import UiAngularModule in your app.module 
  ```ts
 //...
 import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 //...
 import {UiAngularModule} from '@datacentricdesign/ui-angular'
 
@@ -22,9 +22,32 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
     ]
 })
  ```
- 3. (Angular Universal) Settings
+
+### Add style and script 
+
+In your angular.json file add the following code in project
+
+```json
+"styles": [
+    "src/styles.css",
+    "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+    "node_modules/primeicons/primeicons.css",
+    "node_modules/primeng/resources/themes/nova-light/theme.css",
+    "node_modules/primeng/resources/primeng.min.css",
+    "node_modules/font-awesome/css/font-awesome.css",
+    "node_modules/@fortawesome/fontawesome-free/css/all.css",
+    "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+    "node_modules/@datacentricdesign/ui-angular/_theme.scss"
+            ],
+"scripts": [
+    "node_modules/@fortawesome/fontawesome-free/js/all.js",
+    "node_modules/hammerjs/hammer.min.js"
+            ]
+```
+
+### (Angular Universal) Settings
  
- **Add web components to polyfills**
+#### Add web components to polyfills
 
 - `npm install @webcomponents/webcomponentsjs`
 - At the bottom of polyfills.ts file, add the following code :
@@ -32,7 +55,7 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
 import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 ```
 
- **Add post install script on your package.json : babel ngx-chart**
+#### Add post install script on your package.json : babel ngx-chart
 
  - `npm install @babel/cli --save-dev`
  - `npm install @babel/core --save-dev`
@@ -45,7 +68,7 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
  }
 ```
 
-**Call defineCustomElements(window) from main.ts**
+#### Call defineCustomElements(window) from main.ts
 
 ```ts  
   import { defineCustomElements as defineCustomElementsGoogleMaps } from 'web-google-maps/dist/loader';
@@ -57,8 +80,7 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 
 ### Radar Chart
 
-Diplay a radar chart with the property values, dimensions and type. 
-=> For property 3+ dimensions
+(Property 3+ dimensions) Diplay a radar chart with the property values, dimensions and type.
 
 ```html
 <lib-radar-chart 
@@ -70,8 +92,7 @@ Diplay a radar chart with the property values, dimensions and type.
 
 ### Line Chart
 
-Diplay a line chart with the property values, dimensions.
-=> For property 1 dimensions
+(Property 1 dimensions) Diplay a line chart with the property values, dimensions.
 
 ```html        
 <lib-line-chart 
@@ -82,8 +103,7 @@ Diplay a line chart with the property values, dimensions.
 
 ### Double dimensions Chart
 
-Diplay a double axis line chart with the property values, dimensions.
-=> For property 2 dimensions
+(Property 2 dimensions) Diplay a double axis line chart with the property values, dimensions.
 
 ```html
 <lib-double-dimensions-chart 
@@ -96,15 +116,19 @@ Diplay a double axis line chart with the property values, dimensions.
 
 1. Call `defineCustomElements(window)` from `main.ts`
 
-Diplay a google maps of the entity with the property values, dimensions. 
+(Property LOCATION) Diplay a google maps of the entity with the property values, dimensions. 
 We need also a google map API key `apiKey` and a boolean `checked` if you want to refresh the map each changes (for example for real time value) else there is a button refresh.
 
 ```html
 <lib-google-maps 
-    [property_values] = "values"
+    [property_values] = "property.values"
     [property_dimensions] ="property.dimensions" 
     [property_entity_id] ="property.entity_id"  
     [apiKey]="XXXXXXXXXXXXXXXX" 
     [checked]="false">
 </lib-google-maps>
 ```
+
+### Property
+
+

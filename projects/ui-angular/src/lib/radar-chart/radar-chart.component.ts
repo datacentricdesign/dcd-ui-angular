@@ -5,7 +5,7 @@ import { Label } from 'ng2-charts';
 @Component({
   selector: 'lib-radar-chart',
   templateUrl: './radar-chart.component.html',
-  styleUrls: ['./radar-chart.component.css']
+  styleUrls: ['./radar-chart.component.css'],
 })
 export class RadarChartComponent implements OnInit {
 

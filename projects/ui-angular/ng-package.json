@@ -4,7 +4,8 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "primeng/slider" : "slider",
+      "primeng/slider" : "primengSlider",
+      "primeng/dialog" : "primengDialog",
       "ng2-charts" : "ng2Charts",
       "@swimlane/ngx-charts":"ngxCharts",
       "@swimlane/ngx-charts/release/utils":"ngxChartsReleaseUtils",
@@ -23,6 +24,14 @@
     "ngx-clipboard",
     "d3-scale",
     "d3-shape",
-    "web-google-maps"
+    "web-google-maps",
+    "@angular/animations",
+    "@angular/cdk",
+    "@fortawesome/fontawesome-free",
+    "hammerjs",
+    "perfect-scrollbar",
+    "bootstrap",
+    "@angular/material",
+    "font-awesome"
   ]
 }

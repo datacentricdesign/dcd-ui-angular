@@ -24,9 +24,20 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "dist/ui-angular/_theme.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@fortawesome/fontawesome-free/js/all.js",
+              "node_modules/hammerjs/hammer.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -84,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -139,11 +151,6 @@
               "input": "node_modules/web-google-maps/dist",
               "output": "./"
             }
-          ],
-          "styles": [
-          ],
-          "scripts": [
-
           ]
         },
         "test": {
@@ -167,6 +174,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "dcd-ui-angular"
 }
