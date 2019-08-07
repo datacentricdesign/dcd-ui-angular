@@ -25,13 +25,13 @@
     "d3-scale",
     "d3-shape",
     "web-google-maps",
-    "@angular/animations",
-    "@angular/cdk",
     "@fortawesome/fontawesome-free",
     "hammerjs",
     "perfect-scrollbar",
     "bootstrap",
+    "font-awesome",
     "@angular/material",
-    "font-awesome"
+    "@angular/animations",
+    "@angular/cdk"
   ]
 }

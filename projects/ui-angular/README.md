@@ -25,7 +25,9 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
 
 ### Add style and script 
 
-In your angular.json file add the following code in project
+1. `ng add @angular/material``
+
+2. In your angular.json file add the following code in project
 
 ```json
 "styles": [

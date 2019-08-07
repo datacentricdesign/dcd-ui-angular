@@ -35,8 +35,6 @@
               "dist/ui-angular/_theme.scss"
             ],
             "scripts": [
-              "node_modules/@fortawesome/fontawesome-free/js/all.js",
-              "node_modules/hammerjs/hammer.min.js"
             ]
           },
           "configurations": {
@@ -140,17 +138,9 @@
             "tsConfig": "projects/ui-angular/tsconfig.lib.json",
             "project": "projects/ui-angular/ng-package.json"
           },
-          "assets": [
-            {
-              "glob": "webgooglemaps.js",
-              "input": "node_modules/web-google-maps/dist",
-              "output": "./"
-            },
-            {
-              "glob": "webgooglemaps/*",
-              "input": "node_modules/web-google-maps/dist",
-              "output": "./"
-            }
+          "scripts":[
+            "node_modules/@fortawesome/fontawesome-free/js/all.js",
+            "node_modules/hammerjs/hammer.min.js"
           ]
         },
         "test": {
