@@ -6,6 +6,10 @@
     "umdModuleIds": {
       "primeng/slider" : "primengSlider",
       "primeng/dialog" : "primengDialog",
+      "primeng/calendar": "primengCalendar",
+      "primeng/checkbox" : "primengCheckbox",
+      "primeng/inputtext" : "primengInputText",
+      "@ng-bootstrap/ng-bootstrap" : "ngBootstrap",
       "ng2-charts" : "ng2Charts",
       "@swimlane/ngx-charts":"ngxCharts",
       "@swimlane/ngx-charts/release/utils":"ngxChartsReleaseUtils",
@@ -28,6 +32,7 @@
     "@fortawesome/fontawesome-free",
     "perfect-scrollbar",
     "bootstrap",
-    "font-awesome"
+    "font-awesome",
+    "@ng-bootstrap/ng-bootstrap"
   ]
 }

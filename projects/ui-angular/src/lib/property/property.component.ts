@@ -21,10 +21,11 @@ export class PropertyComponent implements OnInit {
     checked:boolean = false
     mode : string = "Manual selected values"
     refresh : any
+    showcalendar:boolean = true
         
      constructor(private service: HttpClientService,@Inject(PLATFORM_ID) private platformId: Object,) {}
  
-     ngOnInit(): void {
+    ngOnInit(): void {
          if (isPlatformServer(this.platformId)) {
           console.log('Init Property component server'); 
              } else {
@@ -38,10 +39,10 @@ export class PropertyComponent implements OnInit {
               }
               
            }
-     }
+    }
  
      
-     BrowserUniversalInit(from:number,to:number){
+    BrowserUniversalInit(from:number,to:number){
             this.getValues([new Date(from),new Date(to)])
              switch(this.property.type) {
                  case "LOCATION": {
@@ -100,6 +101,7 @@ export class PropertyComponent implements OnInit {
                   const first_date = new Date(data['property'].values[0][0])
                   const last_date = new Date(data['property'].values[data['property'].values.length-1][0])
                   this.rangeDates = [first_date,last_date]
+                  this.showcalendar = !this.showcalendar
                   }
                 }
               }

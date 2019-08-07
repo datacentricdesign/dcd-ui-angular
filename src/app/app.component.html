@@ -1,4 +1,6 @@
-<div>
+<h1 style="text-align: center; margin-top: 1%">DCD UI Angular</h1>
+
+<div class ="component-container">
   <h3 style="text-align: center">Radar Chart component</h3>
   <lib-radar-chart 
     [property_values] = "radar_property.values"
@@ -8,7 +10,7 @@
 </lib-radar-chart>
 </div>
 
-<div>
+<div class ="component-container">
   <h3 style="text-align: center">Line Chart component</h3>
   <lib-line-chart 
     [property_values] = "line_property.values"
@@ -16,7 +18,7 @@
 </lib-line-chart>
 </div>
 
-<div>
+<div class ="component-container">
   <h3 style="text-align: center">Double Dimensions Chart component</h3>
   <lib-double-dimensions-chart 
     [property_values] = "double_property.values"
@@ -25,7 +27,7 @@
 </lib-double-dimensions-chart>
 </div>
 
-<div>
+<div class ="component-container">
     <h3 style="text-align: center">Google Maps component</h3>
   <lib-google-maps 
       [property_values] = "location_property.values"
@@ -36,9 +38,19 @@
   </lib-google-maps>
 </div>
 
-<div>
+<div class ="component-container">
     <h3 style="text-align: center">Property component</h3>
     <lib-property [property]="property" [rangeTime] = "rangeTime" ></lib-property>
+</div>
+
+<div class ="component-container">
+    <h3 style="text-align: center">Thing component</h3>
+    <lib-thing [thing]="thing" [rangeTime] = "rangeTime" ></lib-thing>
+</div>
+
+<div class ="component-container">
+    <h3 style="text-align: center">Things component</h3>
+    <lib-things [things]="things"></lib-things>
 </div>
 
 <router-outlet></router-outlet>

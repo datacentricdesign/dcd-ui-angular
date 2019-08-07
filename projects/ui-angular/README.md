@@ -175,6 +175,49 @@ property = new Property({
 })
 ```
 
+#### Thing
+
+```ts 
+import { Thing, Property } from '@datacentricdesign/ui-angular'
+thing = new Thing({
+    id : 'id_thing_1',
+    name : 'name_thing_1',
+    description : 'description of the thing 1',
+    type : 'type_thing_1',
+    properties : [
+      this.property,
+      this.radar_property,
+    ]
+  })
+```
+
+```html
+<lib-thing [thing]="thing" [rangeTime] = "rangeTime" ></lib-thing>
+```
+
+#### Things
+
+```ts
+import { Thing, Property } from '@datacentricdesign/ui-angular'
+things = [this.thing,
+new Thing({
+    id : 'id_thing_2',
+    name : 'name_thing_2',
+    description : 'description of the thing 2',
+    type : 'type_thing_2',
+    properties : [
+      new Property(this.property),
+      this.location_property,
+    ]
+  })
+]
+```
+
+```html
+<lib-things [things]="things"></lib-thing>
+```
+
+
 
 
 

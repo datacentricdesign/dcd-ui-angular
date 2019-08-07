@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
+import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 //@angular/material
 import {MatButtonModule} from '@angular/material/button';
@@ -17,15 +19,18 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {InputTextModule} from 'primeng/inputtext';
 
 //Bootstrap
-//import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 //ng2-charts
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
+
 //@swimlane/ngx-charts 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 //ngx-clipboard 
 import { ClipboardModule } from 'ngx-clipboard';
+
 // Google Maps
 import { CUSTOM_ELEMENTS_SCHEMA} from '@angular/core'
 
@@ -39,6 +44,9 @@ import { DoubleAxisChartComponent } from './double-axis-chart/double-axis-chart.
 import { DoubleDimensionsChartComponent } from './double-dimensions-chart/double-dimensions-chart.component';
 import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { PropertyComponent } from './property/property.component';
+import { ThingComponent } from './thing/thing.component';
+import {ThingsComponent, DialogAddThing, DialogAddProperty, DialogJWT} from './things/things.component'
+import { ConstantThingsComponent } from './constant-things/constant-things.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +56,13 @@ import { PropertyComponent } from './property/property.component';
     DoubleAxisChartComponent, 
     DoubleDimensionsChartComponent, 
     GoogleMapsComponent, 
-    PropertyComponent
+    PropertyComponent, 
+    ThingComponent, 
+    ThingsComponent, 
+    ConstantThingsComponent,
+    DialogAddThing,
+    DialogAddProperty,
+    DialogJWT
   ],
   imports: [
     CommonModule,
@@ -59,7 +73,19 @@ import { PropertyComponent } from './property/property.component';
     HttpClientModule,
     MatSlideToggleModule,
     DialogModule,
-    CalendarModule
+    CalendarModule,
+    MatButtonModule,
+    CheckboxModule,
+    MatButtonModule,
+    InputTextModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatInputModule,
+    MatTableModule,
+    NgbModule,
+    FormsModule,
+
   ],
   exports: [
     UiAngularComponent,
@@ -67,8 +93,16 @@ import { PropertyComponent } from './property/property.component';
     LineChartComponent,
     DoubleDimensionsChartComponent,
     GoogleMapsComponent,
-    PropertyComponent
+    PropertyComponent,
+    ThingComponent,
+    ThingsComponent,
+    ConstantThingsComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [
+    DialogAddThing,
+    DialogAddProperty,
+    DialogJWT
+  ]
 })
 export class UiAngularModule { }
