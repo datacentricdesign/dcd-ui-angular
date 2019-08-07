@@ -3,6 +3,7 @@
 ## Installation
 
 - `npm install @datacentricdesign/ui-angular`
+- Install peer @angular/material, hammer.js & browser animations with `ng add @angular/material`
 
 ### Import import UiAngularModule in your app.module 
  ```ts
@@ -15,8 +16,8 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
 @NgModule({
 
     imports: [
-    BrowserModule
-    BrowserAnimationsModule
+    BrowserModule,
+    BrowserAnimationsModule,
     //...
     UiAngularModule
     ]
@@ -25,25 +26,24 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
 
 ### Add style and script 
 
-
-1. In your angular.json file add the following code in project
-
 ```json
 "styles": [
     "src/styles.css",
-    "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-    "node_modules/primeicons/primeicons.css",
-    "node_modules/primeng/resources/themes/nova-light/theme.css",
-    "node_modules/primeng/resources/primeng.min.css",
-    "node_modules/font-awesome/css/font-awesome.css",
-    "node_modules/@fortawesome/fontawesome-free/css/all.css",
-    "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-    "node_modules/@datacentricdesign/ui-angular/_theme.scss"
+    "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+
+    //ADD -->
+    "./node_modules/primeicons/primeicons.css",
+    "./node_modules/primeng/resources/themes/nova-light/theme.css",
+    "./node_modules/primeng/resources/primeng.min.css",
+    "./node_modules/font-awesome/css/font-awesome.css",
+    "./node_modules/@fortawesome/fontawesome-free/css/all.css",
+    "./node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+    "./node_modules/@datacentricdesign/ui-angular/_theme.scss"
             ],
 "scripts": [
-    "node_modules/@fortawesome/fontawesome-free/js/all.js",
-    "node_modules/hammerjs/hammer.min.js"
+    "./node_modules/@fortawesome/fontawesome-free/js/all.js",
             ]
+    //<--
 ```
 
 
@@ -72,7 +72,9 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 
 ## Components
 
-### Radar Chart
+### Charts Components
+
+#### Radar Chart
 
 (Property 3+ dimensions) Diplay a radar chart with the property values, dimensions and type.
 
@@ -84,7 +86,9 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 </lib-radar-chart>
 ```
 
-### Line Chart
+
+
+#### Line Chart
 
 (Property 1 dimensions) Diplay a line chart with the property values, dimensions.
 
@@ -95,7 +99,7 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 </lib-line-chart>
 ```
 
-### Double dimensions Chart
+#### Double dimensions Chart
 
 (Property 2 dimensions) Diplay a double axis line chart with the property values, dimensions.
 
@@ -106,7 +110,7 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 </lib-double-dimensions-chart>
 ```
 
-### Google Maps
+#### Google Maps
 
 Call defineCustomElements(window) from main.ts
 
@@ -129,6 +133,48 @@ We need also a google map API key `apiKey` and a boolean `checked` if you want t
 </lib-google-maps>
 ```
 
-### Property
+
+### Universal components
+
+These components works correctly only with an angular universal project with a server-side rendering.
+Use the [Javascript SDK](https://www.npmjs.com/package/@datacentricdesign/sdk-js) to setup your server with the DCD Oauth2 strategy and the routerAPI.
+Exemple [here](https://github.com/datacentricdesign/dcd-data-subject) 
+
+#### Property
+
+- Setup a get `'/mapsKey'`route for google maps.
+
+```html
+<lib-property 
+    [property]="property" 
+    [rangeTime] = "rangeTime">
+</lib-property>
+```
+
+```ts
+import { Property } from '@datacentricdesign/ui-angular'
+rangeTime = [new Date().getTime()-60000,new Date().getTime()]
+property = new Property({
+    id:'my_id',
+    values : [
+      [this.ts_1,1,-1],
+      [this.ts_2,3,6],
+      [this.ts_3,5,9]
+    ],
+    dimensions: [{
+      name: "Heart Rate",
+      description: "Heart rate in beats per minutes",
+      unit: "BPM"
+    },
+    {
+      name: "RR-Interval",
+      description: "RR-Interval in seconds",
+      unit: "s"
+    }
+  ]
+})
+```
+
+
 
 

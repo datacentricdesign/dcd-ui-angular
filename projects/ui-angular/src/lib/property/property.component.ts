@@ -11,8 +11,8 @@ import {HttpClientService} from '../http-client.service'
 })
 export class PropertyComponent implements OnInit {
 
-  @Input() ChildProperty: Property;
-    @Input() RangeTime: number[];
+    @Input() property: Property;
+    @Input() rangeTime: number[];
 
     chart_type : string;
     values : any[] = []
@@ -28,14 +28,13 @@ export class PropertyComponent implements OnInit {
          if (isPlatformServer(this.platformId)) {
           console.log('Init Property component server'); 
              } else {
-              if(this.RangeTime === undefined){
-                const from : number = 0
-                const to : number = (new Date).getTime();
-                this.BrowserUniversalInit(from,to)
+              if(this.property.values.length > 0){
+                this.values = this.property.values
+              }
+              if(this.rangeTime === undefined){
+                this.BrowserUniversalInit(0,(new Date).getTime())
               }else{
-                const from : number = this.RangeTime[0]
-                const to : number = this.RangeTime[1];
-                this.BrowserUniversalInit(from,to)
+                this.BrowserUniversalInit(this.rangeTime[0],this.rangeTime[1])
               }
               
            }
@@ -43,16 +42,8 @@ export class PropertyComponent implements OnInit {
  
      
      BrowserUniversalInit(from:number,to:number){
-              this.service.get('api/things/'+this.ChildProperty.entity_id+'/properties/'+this.ChildProperty.id+'?from='+from+'&to='+to).subscribe(
-              data => {
-              if(data['property'].values.length > 0){
-              const first_date = new Date(data['property'].values[0][0])
-              const last_date = new Date(data['property'].values[data['property'].values.length-1][0])
-              this.rangeDates = [first_date,last_date]
-              }
-              this.values = data['property'].values
-
-             switch(this.ChildProperty.type) {
+            this.getValues([new Date(from),new Date(to)])
+             switch(this.property.type) {
                  case "LOCATION": {
                   this.service.get('mapsKey').subscribe(
                   data => {
@@ -93,17 +84,25 @@ export class PropertyComponent implements OnInit {
                  }
       
               }
-             })
     }
 
-    getValues(rangeDates){
+    getValues(rangeDates:Date[]){
       if(rangeDates.length == 2){
         if(rangeDates[0] !== null && rangeDates[1]!== null){
-            const from : number = rangeDates[0].getTime(); 
-            const to : number = rangeDates[1].getTime() + 24*60*60*1000 ; 
-             this.service.get('api/things/'+this.ChildProperty.entity_id+'/properties/'+this.ChildProperty.id+'?from='+from+'&to='+to).subscribe(
+            const from_ : number = rangeDates[0].getTime(); 
+            const to_ : number = rangeDates[1].getTime() + 24*60*60*1000 ; 
+             this.service.get('api/things/'+this.property.entity_id+'/properties/'+this.property.id+'?from='+from_+'&to='+to_).subscribe(
               data => {
-              this.values = data['property'].values
+                if(!(data['property'] === undefined)){
+                  if(Array.isArray(data['property'].values)){
+                  this.values = data['property'].values
+                  if(data['property'].values.length > 0){
+                  const first_date = new Date(data['property'].values[0][0])
+                  const last_date = new Date(data['property'].values[data['property'].values.length-1][0])
+                  this.rangeDates = [first_date,last_date]
+                  }
+                }
+              }
             })
         }
       }

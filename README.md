@@ -2,7 +2,7 @@
 
 
 ## Intallation
-
+- `npm uninstall @datacentricdesign/ui-angular`
 - `npm install`
 - `cd project/ui-angular` & `npm install`
 
@@ -18,7 +18,7 @@ Run `ng generate component component-name --project ui-angular` to generate a ne
 
 ## Build
 
-Run `npm run build-lib` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build-lib` to build the library ui-angular. The build artifacts will be stored in the `dist/` directory.
 
 ## Publishing
 

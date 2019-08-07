@@ -25,7 +25,7 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
@@ -35,8 +35,7 @@
               "dist/ui-angular/_theme.scss"
             ],
             "scripts": [
-              "node_modules/@fortawesome/fontawesome-free/js/all.js",
-              "node_modules/hammerjs/hammer.min.js"
+              "node_modules/@fortawesome/fontawesome-free/js/all.js"
             ]
           },
           "configurations": {
@@ -140,8 +139,7 @@
             "tsConfig": "projects/ui-angular/tsconfig.lib.json",
             "project": "projects/ui-angular/ng-package.json"
           },
-          "scripts":[
-          ]
+          "scripts": []
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",

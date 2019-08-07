@@ -14,8 +14,8 @@
     <div class = "chart-container" *ngIf = "chart_type == 'MAPS'">
             <lib-google-maps 
                     [property_values] = "values"
-                    [property_dimensions] ="ChildProperty.dimensions" 
-                    [property_entity_id] ="ChildProperty.entity_id"  
+                    [property_dimensions] ="property.dimensions" 
+                    [property_entity_id] ="property.entity_id"  
                     [apiKey]="apiKey" 
                     [checked]="checked">
             </lib-google-maps>
@@ -24,8 +24,8 @@
     <div class = "chart-container" *ngIf = "chart_type == 'RADAR'">
             <lib-radar-chart 
                     [property_values] = "values"
-                    [property_dimensions] = "ChildProperty.dimensions" 
-                    [property_type] = "ChildProperty.type"
+                    [property_dimensions] = "property.dimensions" 
+                    [property_type] = "property.type"
                     >
             </lib-radar-chart>
     </div>
@@ -33,14 +33,14 @@
     <div class = "chart-container" *ngIf = "chart_type == 'DOUBLE'">
             <lib-double-dimensions-chart 
                     [property_values] = "values"
-                    [property_dimensions] ="ChildProperty.dimensions"
+                    [property_dimensions] ="property.dimensions"
                     >
             </lib-double-dimensions-chart>
     </div>
     
     <div class = "chart-container" *ngIf = "chart_type == 'LINE'">
             <lib-line-chart 
-                    [property_dimensions] ="ChildProperty.dimensions"
+                    [property_dimensions] ="property.dimensions"
                     [property_values] = "values">
             </lib-line-chart>
     </div>

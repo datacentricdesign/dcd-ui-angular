@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Property } from '@datacentricdesign/ui-angular'
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent {
   ts_3 =  new Date().getTime() 
 
 
-
+  //Radar chart component variable
   radar_property = {
     values : [
       [this.ts_1,1,2,3],
@@ -44,6 +45,7 @@ export class AppComponent {
     type:"ACCELEROMETER"
   }
 
+  //Line chart component variable
   line_property = {
     values : [
       [this.ts_1,1],
@@ -59,6 +61,7 @@ export class AppComponent {
     ]
   }
 
+  //Double dimensions chart component variable
   double_property = {
     values : [
       [this.ts_1,1,-1],
@@ -78,6 +81,7 @@ export class AppComponent {
   ]
   }
 
+  //Google Maps component variables
   location_property ={
     values : [
       [this.ts_1,52.0186,4.3782],
@@ -98,6 +102,10 @@ export class AppComponent {
     ],
     entity_id : "test-id"
   }
-
   apiKey = "AIzaSyD6TYz32l0J6kFrPTapRm2z5RwGxBBKbFA"
+
+  //Property component variable
+  property = new Property(this.double_property)
+  rangeTime = [this.ts_1,this.ts_3]
+
 }

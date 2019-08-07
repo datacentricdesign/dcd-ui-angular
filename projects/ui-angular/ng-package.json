@@ -26,12 +26,8 @@
     "d3-shape",
     "web-google-maps",
     "@fortawesome/fontawesome-free",
-    "hammerjs",
     "perfect-scrollbar",
     "bootstrap",
-    "font-awesome",
-    "@angular/material",
-    "@angular/animations",
-    "@angular/cdk"
+    "font-awesome"
   ]
 }

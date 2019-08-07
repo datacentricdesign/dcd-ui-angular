@@ -47,7 +47,8 @@ import { PropertyComponent } from './property/property.component';
     LineChartComponent, 
     DoubleAxisChartComponent, 
     DoubleDimensionsChartComponent, 
-    GoogleMapsComponent, PropertyComponent
+    GoogleMapsComponent, 
+    PropertyComponent
   ],
   imports: [
     CommonModule,
@@ -57,14 +58,16 @@ import { PropertyComponent } from './property/property.component';
     ClipboardModule,
     HttpClientModule,
     MatSlideToggleModule,
-    DialogModule
+    DialogModule,
+    CalendarModule
   ],
   exports: [
     UiAngularComponent,
     RadarChartComponent,
     LineChartComponent,
     DoubleDimensionsChartComponent,
-    GoogleMapsComponent
+    GoogleMapsComponent,
+    PropertyComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
