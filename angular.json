@@ -139,8 +139,6 @@
             "project": "projects/ui-angular/ng-package.json"
           },
           "scripts":[
-            "node_modules/@fortawesome/fontawesome-free/js/all.js",
-            "node_modules/hammerjs/hammer.min.js"
           ]
         },
         "test": {

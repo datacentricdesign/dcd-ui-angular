@@ -25,9 +25,8 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
 
 ### Add style and script 
 
-1. `ng add @angular/material``
 
-2. In your angular.json file add the following code in project
+1. In your angular.json file add the following code in project
 
 ```json
 "styles": [
@@ -47,15 +46,16 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
             ]
 ```
 
-### (Angular Universal) Settings
- 
-#### Add web components to polyfills
+### Add web components to polyfills
 
 - `npm install @webcomponents/webcomponentsjs`
 - At the bottom of polyfills.ts file, add the following code :
 ```ts
 import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 ```
+
+
+### (Angular Universal) Settings
 
 #### Add post install script on your package.json : babel ngx-chart
 
