@@ -46,14 +46,6 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
             ]
 ```
 
-### Add web components to polyfills
-
-- `npm install @webcomponents/webcomponentsjs`
-- At the bottom of polyfills.ts file, add the following code :
-```ts
-import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
-```
-
 
 ### (Angular Universal) Settings
 
@@ -70,12 +62,12 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
  }
 ```
 
-#### Call defineCustomElements(window) from main.ts
+#### Add web components to polyfills
 
-```ts  
-  import { defineCustomElements as defineCustomElementsGoogleMaps } from 'web-google-maps/dist/loader';
-  
-  defineCustomElementsGoogleMaps(window);
+- `npm install @webcomponents/webcomponentsjs`
+- At the bottom of polyfills.ts file, add the following code :
+```ts
+import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 ```
 
 ## Components
@@ -114,9 +106,15 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 </lib-double-dimensions-chart>
 ```
 
-### Google Maps (Only for Angular Universal)
+### Google Maps
 
-1. Call `defineCustomElements(window)` from `main.ts`
+Call defineCustomElements(window) from main.ts
+
+```ts  
+  import { defineCustomElements as defineCustomElementsGoogleMaps } from 'web-google-maps/dist/loader';
+  
+  defineCustomElementsGoogleMaps(window);
+```
 
 (Property LOCATION) Diplay a google maps of the entity with the property values, dimensions. 
 We need also a google map API key `apiKey` and a boolean `checked` if you want to refresh the map each changes (for example for real time value) else there is a button refresh.

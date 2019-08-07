@@ -3,7 +3,7 @@
   <lib-radar-chart 
     [property_values] = "radar_property.values"
     [property_dimensions] = "radar_property.dimensions" 
-    [property_dimensions] = 'radar_property.type'
+    [property_type] = 'radar_property.type'
     >
 </lib-radar-chart>
 </div>
@@ -23,6 +23,17 @@
     [property_dimensions] = "double_property.dimensions" 
     >
 </lib-double-dimensions-chart>
+</div>
+
+<div>
+    <h3 style="text-align: center">Google Maps component</h3>
+  <lib-google-maps 
+      [property_values] = "location_property.values"
+      [property_dimensions] ="location_property.dimensions" 
+      [property_entity_id] ="location_property.entity_id"  
+      [apiKey]="apiKey" 
+      [checked]="false">
+  </lib-google-maps>
 </div>
 
 <router-outlet></router-outlet>

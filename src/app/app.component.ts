@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'dcd-ui-angular';
 
   ts_1 = new Date().getTime() - 60000
@@ -76,4 +77,27 @@ export class AppComponent {
     }
   ]
   }
+
+  location_property ={
+    values : [
+      [this.ts_1,52.0186,4.3782],
+      [this.ts_2,52.0183,4.3793],
+      [this.ts_2,52.0189,4.3799]
+    ],
+    dimensions: [
+      {
+        name: "Longitude",
+        description: "",
+        unit: "°"
+      },
+      {
+        name: "Latitude",
+        description: "",
+        unit: "°"
+      }
+    ],
+    entity_id : "test-id"
+  }
+
+  apiKey = "AIzaSyD6TYz32l0J6kFrPTapRm2z5RwGxBBKbFA"
 }

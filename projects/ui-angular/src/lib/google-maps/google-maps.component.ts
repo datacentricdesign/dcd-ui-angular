@@ -73,7 +73,7 @@ export class GoogleMapsComponent implements OnInit {
                   lng: last_lng,
                   icon: 'https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png',
                   infoWindowOptions: {
-                  content: this.property_entity_id +' '+values[this.index_slider][0]
+                  content: this.property_entity_id +' '+new Date(values[this.index_slider][0])
                   }
               }
               ],
@@ -115,7 +115,7 @@ export class GoogleMapsComponent implements OnInit {
                       lng: values[i][2],
                       icon: 'https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png',
                       infoWindowOptions: {
-                      content: this.property_entity_id +' '+values[i][0]
+                      content: this.property_entity_id +' '+new Date(values[i][0])
                       }
                   })
                 }

@@ -35,6 +35,8 @@
               "dist/ui-angular/_theme.scss"
             ],
             "scripts": [
+              "node_modules/@fortawesome/fontawesome-free/js/all.js",
+              "node_modules/hammerjs/hammer.min.js"
             ]
           },
           "configurations": {
