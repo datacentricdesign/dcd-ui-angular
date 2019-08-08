@@ -13,7 +13,7 @@ export class ConstantThingsComponent implements OnInit {
   display_property: boolean = false;
   property_picked:Property = new Property({})
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
   }

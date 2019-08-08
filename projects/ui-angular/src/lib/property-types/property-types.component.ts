@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit,SimpleChanges,IterableDiffers,IterableDiffer} from '@angular/core';
 import {Thing, Property} from '../classes'
 
 @Component({
@@ -12,17 +12,42 @@ export class PropertyTypesComponent implements OnInit {
   @Input() properties : Property[];
   str_things : Thing[] = []
 
-  constructor() { }
+  private differ: IterableDiffer<Property>;
+
+  constructor(private differs: IterableDiffers) {
+    this.differ = differs.find([]).create(null);
+  }
+  
+ 
+
 
   ngOnInit() {
-    this.FillStructuredArrayThing()
   }
 
-  FillStructuredArrayThing() {
-    this.properties.forEach(property=>{
-            this.AddType(this.str_things,property)
-          })
+  ngDoCheck(): void {
+    if (this.differ) {
+      const changes = this.differ.diff(this.properties)
+      if(changes){
+      if(changes['collection']){
+      this.str_things = []
+      changes['collection'].forEach(property=>{
+        console.log('hey')
+        this.AddType(this.str_things,property)
+      })
+    }
+    }
+    }
   }
+  
+  ngOnChanges(changes: SimpleChanges) {
+  if(!(changes.properties === undefined)){
+    this.str_things = []
+    changes.properties.currentValue.forEach(property=>{
+      this.AddType(this.str_things,property)
+    })
+
+  }
+}
 
   AddType(str_things : Thing[],property:Property){
     if(this.contains(str_things,property.type)){

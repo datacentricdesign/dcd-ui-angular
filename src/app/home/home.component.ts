@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Property,Thing } from '@datacentricdesign/ui-angular'
-import { convertPropertyBindingBuiltins } from '@angular/compiler/src/compiler_util/expression_converter';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,8 @@ import { convertPropertyBindingBuiltins } from '@angular/compiler/src/compiler_u
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
   }
@@ -156,5 +156,12 @@ export class HomeComponent implements OnInit {
     new Property(this.line_property),
     new Property(this.location_property),
     new Property(this.radar_property),
-    this.property]
+    new Property(this.radar_property)]
+  
+
+    addProperty(){
+      console.log('click')
+      this.properties.push(this.property)
+      //this.properties = []
+    }
 }
