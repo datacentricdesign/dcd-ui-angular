@@ -12,7 +12,7 @@ import {isPlatformServer} from "@angular/common";
 })
 export class ThingsComponent implements OnInit {
 
-  things : Thing[]
+  things : Thing[] = []
   displayedColumns: string[] = ['name', 'type', 'settings'];
   display_property: boolean = false;
   property_picked:Property = new Property({})
@@ -28,11 +28,7 @@ export class ThingsComponent implements OnInit {
       if (isPlatformServer(this.platformId)) {
         console.log('Init Things component server'); 
         } else {
-        if(this.things === undefined) {
-          console.error('Init Things component browser : ','Input things is undefined')
-        }else{
             this.BrowserUniversalInit()
-        }
       }
     }
 
@@ -42,21 +38,15 @@ export class ThingsComponent implements OnInit {
     }
 
     FillArrayThings() : void{
-      this.service.get('api/things').subscribe(
-        data => {
-        data['things'].forEach(thing => {
-          this.service.get('api/things/'+thing.id).subscribe(
-        data => {
-        this.things.push(new Thing(data['thing']))
+        this.service.get('api/things').subscribe(
+          data => {
+          data['things'].forEach(thing => {
+            this.service.get('api/things/'+thing.id).subscribe(
+          data => {
+          this.things.push(new Thing(data['thing']))
+          });
         });
       });
-    })
-    ;
-    }
-
-    sort_things_by_properties(things : Thing[]) : Thing[] {
-
-      return []
     }
 
     descriptionT(thing:Thing):string {

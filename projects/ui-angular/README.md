@@ -206,7 +206,7 @@ thing = new Thing({
 
 #### Things
 
-Display all your personnal thing of the hub.
+Display all your personnal things of the hub.
 
 ```html
 <lib-things></lib-thing>
