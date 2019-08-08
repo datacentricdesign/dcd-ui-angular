@@ -12,9 +12,8 @@ import {isPlatformServer} from "@angular/common";
 })
 export class ThingsComponent implements OnInit {
 
-  @Input() things : Thing[]
+  things : Thing[]
   displayedColumns: string[] = ['name', 'type', 'settings'];
-  //Dialog property
   display_property: boolean = false;
   property_picked:Property = new Property({})
 
@@ -23,9 +22,7 @@ export class ThingsComponent implements OnInit {
     private service: HttpClientService,
     @Inject(PLATFORM_ID) private platformId: Object,
     public dialog: MatDialog
-  ) {
-  
-    }
+  ) {}
 
     ngOnInit(): void {
       if (isPlatformServer(this.platformId)) {
@@ -40,7 +37,21 @@ export class ThingsComponent implements OnInit {
     }
 
     BrowserUniversalInit(){
-      console.log('Init Things component browser')
+      console.log('Init Home component browser')
+      this.FillArrayThings()
+    }
+
+    FillArrayThings() : void{
+      this.service.get('api/things').subscribe(
+        data => {
+        data['things'].forEach(thing => {
+          this.service.get('api/things/'+thing.id).subscribe(
+        data => {
+        this.things.push(new Thing(data['thing']))
+        });
+      });
+    })
+    ;
     }
 
     sort_things_by_properties(things : Thing[]) : Thing[] {

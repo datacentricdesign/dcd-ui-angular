@@ -13,7 +13,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "preserveSymlinks": true,
             "outputPath": "dist/dcd-ui-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -30,9 +29,7 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
-              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
               "dist/ui-angular/_theme.scss"
             ],
             "scripts": [

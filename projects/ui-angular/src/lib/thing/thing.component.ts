@@ -38,7 +38,8 @@ export class ThingComponent implements OnInit {
         else {
           if (this.thing === undefined){
             if(history.state.data === undefined){
-                this.router.navigate(['page/home'])
+                //this.router.navigate(['page/home'])
+                console.error('No thing in parameter or in state')
             }else{
                 this.thing = new Thing({
                     id : history.state.data.id,

@@ -47,6 +47,7 @@ import { PropertyComponent } from './property/property.component';
 import { ThingComponent } from './thing/thing.component';
 import {ThingsComponent, DialogAddThing, DialogAddProperty, DialogJWT} from './things/things.component'
 import { ConstantThingsComponent } from './constant-things/constant-things.component';
+import { PropertyTypesComponent } from './property-types/property-types.component';
 
 @NgModule({
   declarations: [
@@ -62,10 +63,14 @@ import { ConstantThingsComponent } from './constant-things/constant-things.compo
     ConstantThingsComponent,
     DialogAddThing,
     DialogAddProperty,
-    DialogJWT
+    DialogJWT,
+    PropertyTypesComponent
   ],
   imports: [
     CommonModule,
+    RouterModule.forRoot([
+      {path : 'page/thing', component: ThingComponent, pathMatch : "full"},
+    ]),
     SliderModule,
     ChartsModule,
     NgxChartsModule,
@@ -84,8 +89,7 @@ import { ConstantThingsComponent } from './constant-things/constant-things.compo
     MatInputModule,
     MatTableModule,
     NgbModule,
-    FormsModule,
-
+    FormsModule
   ],
   exports: [
     UiAngularComponent,
@@ -96,7 +100,7 @@ import { ConstantThingsComponent } from './constant-things/constant-things.compo
     PropertyComponent,
     ThingComponent,
     ThingsComponent,
-    ConstantThingsComponent
+    PropertyTypesComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [

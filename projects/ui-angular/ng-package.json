@@ -30,9 +30,7 @@
     "d3-shape",
     "web-google-maps",
     "@fortawesome/fontawesome-free",
-    "perfect-scrollbar",
     "bootstrap",
-    "font-awesome",
     "@ng-bootstrap/ng-bootstrap"
   ]
 }
