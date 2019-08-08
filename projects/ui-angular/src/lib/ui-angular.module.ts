@@ -48,6 +48,7 @@ import { ThingComponent } from './thing/thing.component';
 import {ThingsComponent, DialogAddThing, DialogAddProperty, DialogJWT} from './things/things.component'
 import { ConstantThingsComponent } from './constant-things/constant-things.component';
 import { PropertyTypesComponent } from './property-types/property-types.component';
+import { DataCollectionsComponent } from './data-collections/data-collections.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { PropertyTypesComponent } from './property-types/property-types.componen
     DialogAddThing,
     DialogAddProperty,
     DialogJWT,
-    PropertyTypesComponent
+    PropertyTypesComponent,
+    DataCollectionsComponent
   ],
   imports: [
     CommonModule,
@@ -100,7 +102,8 @@ import { PropertyTypesComponent } from './property-types/property-types.componen
     PropertyComponent,
     ThingComponent,
     ThingsComponent,
-    PropertyTypesComponent
+    PropertyTypesComponent,
+    DataCollectionsComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
