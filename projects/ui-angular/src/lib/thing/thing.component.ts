@@ -121,10 +121,10 @@ export class ThingComponent implements OnInit {
     }
 
 
-    getValues(rangeDates){
+    getValues(rangeDates:Date[]){
       this.clearChart()
       if(rangeDates.length == 2){
-        if(rangeDates[0] !== null && rangeDates[1]!== null){
+        if(rangeDates[0] && rangeDates[1]){
             this.dimensions = []
             const from : number = rangeDates[0].getTime(); 
             const to : number = rangeDates[1].getTime() + 24*60*60*1000 ; 
@@ -155,9 +155,9 @@ export class ThingComponent implements OnInit {
       }
     }
 
-    updateValues(rangeDates){
+    updateValues(rangeDates:Date[]){
       if(rangeDates.length == 2){
-        if(rangeDates[0] !== null && rangeDates[1]!== null){
+        if(rangeDates[0] && rangeDates[1]){
             const from : number = rangeDates[0].getTime(); 
             const to : number = rangeDates[1].getTime() + 24*60*60*1000 ; 
 

@@ -90,7 +90,7 @@ export class PropertyComponent implements OnInit {
 
     getValues(rangeDates:Date[]){
       if(rangeDates.length == 2){
-        if(rangeDates[0] !== null && rangeDates[1]!== null){
+        if(rangeDates[0] && rangeDates[1]){
             const from_ : number = rangeDates[0].getTime(); 
             const to_ : number = rangeDates[1].getTime() + 24*60*60*1000 ; 
              this.service.get('api/things/'+this.property.entity_id+'/properties/'+this.property.id+'?from='+from_+'&to='+to_).subscribe(
