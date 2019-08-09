@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   
   rangeTime = [this.ts_1,this.ts_3]
 
-  apiKey = "AIzaSyD6TYz32l0J6kFrPTapRm2z5RwGxBBKbFA"
+  apiKey = "YOUR_GOOGLE_API_KEY"
 
 
   //Radar chart component variable
@@ -137,7 +137,7 @@ export class HomeComponent implements OnInit {
     ]
   })
 
-  //Thins component variable
+  //Things component variable
   things = [this.thing,
     new Thing({
         id : 'id_thing_2',
@@ -156,12 +156,12 @@ export class HomeComponent implements OnInit {
     new Property(this.line_property),
     new Property(this.location_property),
     new Property(this.radar_property),
-    new Property(this.radar_property)]
+    new Property(this.radar_property)
+  ]
   
 
     addProperty(){
       console.log('click')
       this.properties.push(this.property)
-      //this.properties = []
     }
 }
