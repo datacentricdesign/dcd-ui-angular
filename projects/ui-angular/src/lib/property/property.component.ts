@@ -43,6 +43,7 @@ export class PropertyComponent implements OnInit {
  
      
     BrowserUniversalInit(from:number,to:number){
+      this.rangeDates = [new Date(from),new Date(to)]
             this.getValues([new Date(from),new Date(to)])
              switch(this.property.type) {
                  case "LOCATION": {

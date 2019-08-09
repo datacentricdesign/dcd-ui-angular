@@ -35,8 +35,13 @@
         [checked]="false">
     </lib-google-maps>
   </div>
+
+  <div class ="component-container">
+    <h3 style="text-align: center">Property component</h3>
+    <lib-property [property]="property" [rangeTime] = "rangeTime" ></lib-property>
+</div>
   
-  <!-- works correctly only with a SSR setup with the OAuth2 strategy & routerAPI of the sdk
+  <!-- These component work correctly only with a SSR setup with the OAuth2 strategy & routerAPI of the sdk
   <div class ="component-container">
       <h3 style="text-align: center">Property component</h3>
       <lib-property [property]="property" [rangeTime] = "rangeTime" ></lib-property>

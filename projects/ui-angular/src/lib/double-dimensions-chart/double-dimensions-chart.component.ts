@@ -107,6 +107,7 @@ ngOnChanges(changes: SimpleChanges) {
             }
           }
         }else{
+          this.showData = false
           this.multi = [{name: '',series: [{name: '',value: 0}]}]
         }
       }

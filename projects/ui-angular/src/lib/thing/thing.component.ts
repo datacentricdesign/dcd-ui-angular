@@ -65,6 +65,7 @@ export class ThingComponent implements OnInit {
         }
     }
     BrowserUniversalInit(from:number,to:number) {
+      this.rangeDates = [new Date(from),new Date(to)]
         for (let property of this.thing.properties) {
               for(var i = 0; i < property.dimensions.length; i++){
               const dim_name =  property.dimensions[i].name
