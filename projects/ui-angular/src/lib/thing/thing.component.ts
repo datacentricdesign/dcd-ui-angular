@@ -1,6 +1,5 @@
 import { Component, Inject, PLATFORM_ID, Input, OnInit } from '@angular/core';
 import { isPlatformServer } from "@angular/common";
-import { Router} from '@angular/router';
 import { Thing,Dimension} from '../classes'
 import { MatSlideToggleChange } from '@angular/material';
 import {HttpClientService} from '../http-client.service'
@@ -26,7 +25,6 @@ export class ThingComponent implements OnInit {
     first_from : Date
 
     constructor(
-        private router: Router,
         private service: HttpClientService,
         @Inject(PLATFORM_ID)
         private platformId: Object) {
@@ -36,9 +34,8 @@ export class ThingComponent implements OnInit {
           console.log('Init Thing component server'); 
         }
         else {
-          if (this.thing === undefined){
-            if(history.state.data === undefined){
-                //this.router.navigate(['page/home'])
+          if (!this.thing){
+            if(!history.state.data){
                 console.error('No thing in parameter or in state')
             }else{
                 this.thing = new Thing({
@@ -49,14 +46,14 @@ export class ThingComponent implements OnInit {
                     properties : history.state.data.properties
                 })
 
-                if(history.state.range === undefined){
+                if(!history.state.range){
                   this.BrowserUniversalInit(0,(new Date).getTime())
                 }else{
                   this.BrowserUniversalInit(history.state.range[0],history.state.range[1]);
                 }
             }
           }else{
-            if(this.rangeTime === undefined){
+            if(!this.rangeTime){
               this.BrowserUniversalInit(0,(new Date).getTime())
             }else{
               this.BrowserUniversalInit(this.rangeTime[0],this.rangeTime[1])
@@ -72,6 +69,20 @@ export class ThingComponent implements OnInit {
               const dim_name =  property.dimensions[i].name
               const dim_unit = property.dimensions[i].unit
               const index = i
+
+              if(property.values.length > 0){
+                this.dimensions.push(new Dimension(
+                  property.id,
+                  property.name,
+                  dim_name,
+                  dim_unit,
+                  this.getData(index,property.values)
+                  ))
+                  const first_date = new Date(property.values[0][0])
+                  const last_date = new Date(property.values[property.values.length-1][0])
+                  this.rangeDates = [first_date,last_date]
+                  this.showcalendar = !this.showcalendar
+                  }
 
               this.service.get('api/things/'+property.entity_id+'/properties/'+property.id+'?from='+from+'&to='+to).subscribe(
                 data => {
@@ -229,7 +240,7 @@ for(let value of this.selectedDimensions){
   if(this.multi.length == 0){
     this.firstunit = value.unit
     this.addDim(value,this.dim1)
-    if(value.unit != undefined && value.unit != ''){
+    if(value.unit){
       this.yAxisLabel = this.toString(this.dim1) +' ('+value.unit+')'
     }else{
       this.yAxisLabel = this.toString(this.dim1)+ ' (no unit)'
@@ -242,7 +253,7 @@ for(let value of this.selectedDimensions){
   }else{
     if(this.firstunit != value.unit){
       this.addDim(value,this.dim2)
-      if(value.unit != undefined && value.unit != ''){
+      if(value.unit){
         this.yAxisLabel2 = this.toString(this.dim2) +' ('+value.unit+')'
       }else{
         this.yAxisLabel2 = this.toString(this.dim2) + ' (no unit)'
@@ -254,7 +265,7 @@ for(let value of this.selectedDimensions){
         })
     }else{
       this.addDim(value,this.dim1)
-      if(value.unit != undefined && value.unit != ''){
+      if(value.unit){
         this.yAxisLabel = this.toString(this.dim1) +' ('+value.unit+')'
       }else{
         this.yAxisLabel = this.toString(this.dim1) + ' (no unit)'

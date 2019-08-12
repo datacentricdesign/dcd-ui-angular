@@ -45,7 +45,7 @@ colorScheme = {
 
   ngOnChanges(changes: SimpleChanges) {
 
-    if(!(changes.property_values === undefined)){
+    if(changes.property_values){
       const values = changes.property_values.currentValue
       if(values.length>0){
               this.multi =  []
@@ -57,7 +57,7 @@ colorScheme = {
               for(var i = 0; i <= this.property_dimensions.length; i++){
                 if(i == this.property_dimensions.length ){
                   for(let value of this.dimensions){
-                    if(value.unit != undefined && value.unit != ''){
+                    if(value.unit){
                       this.yAxisLabel = value.dimension +' ('+value.unit+' )'
                     }else{
                       this.yAxisLabel = value.dimension +' (no unit)'

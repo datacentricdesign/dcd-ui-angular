@@ -1,0 +1,26 @@
+.thing-container{
+    display: inline-table;
+    width: 100%;
+}
+
+.thing_header{
+    display : table;
+    width:  100%
+  }
+  .thing_title {
+    display: table-cell;
+    float: left;
+  }
+  .thing_nav {
+    display: table-cell;
+    float: right;
+  }
+
+  .thing_table{
+    height: 200px;
+    overflow: auto;
+  }
+
+  table {
+    width: 100%;
+  }

@@ -32,12 +32,11 @@ export class PropertyComponent implements OnInit {
               if(this.property.values.length > 0){
                 this.values = this.property.values
               }
-              if(this.rangeTime === undefined){
-                this.BrowserUniversalInit(0,(new Date).getTime())
-              }else{
+              if(this.rangeTime){
                 this.BrowserUniversalInit(this.rangeTime[0],this.rangeTime[1])
+              }else{
+                this.BrowserUniversalInit(0,(new Date).getTime())
               }
-              
            }
     }
  
@@ -95,7 +94,7 @@ export class PropertyComponent implements OnInit {
             const to_ : number = rangeDates[1].getTime() + 24*60*60*1000 ; 
              this.service.get('api/things/'+this.property.entity_id+'/properties/'+this.property.id+'?from='+from_+'&to='+to_).subscribe(
               data => {
-                if(!(data['property'] === undefined)){
+                if(data['property']){
                   if(Array.isArray(data['property'].values)){
                   this.values = data['property'].values
                   if(data['property'].values.length > 0){

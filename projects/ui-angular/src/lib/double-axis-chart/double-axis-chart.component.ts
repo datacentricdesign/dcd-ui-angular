@@ -332,12 +332,12 @@ export class DoubleAxisChartComponent extends BaseChartComponent implements OnIn
         if (domain.indexOf(d.value) < 0) {
           domain.push(d.value);
         }
-        if (d.min !== undefined) {
+        if (d.min) {
           if (domain.indexOf(d.min) < 0) {
             domain.push(d.min);
           }
         }
-        if (d.max !== undefined) {
+        if (d.max) {
           if (domain.indexOf(d.max) < 0) {
             domain.push(d.max);
           }
@@ -365,7 +365,7 @@ export class DoubleAxisChartComponent extends BaseChartComponent implements OnIn
 
   getXScale(domain, width): any {
     let scale;
-    if (this.bandwidth === undefined) {
+    if (!this.bandwidth) {
       this.bandwidth = (this.dims.width - this.barPadding);
     }
 

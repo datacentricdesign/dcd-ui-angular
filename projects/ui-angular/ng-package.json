@@ -16,7 +16,8 @@
       "ngx-clipboard": "ngxClipboard",
       "d3-scale":"d3Scale",
       "d3-shape":"d3shape",
-      "web-google-maps":"webGoogleMaps"
+      "web-google-maps":"webGoogleMaps",
+      "angular-vertical-timeline":"verticalTimeline"
     }
   },
   "whitelistedNonPeerDependencies": [
@@ -31,6 +32,7 @@
     "web-google-maps",
     "@fortawesome/fontawesome-free",
     "bootstrap",
-    "@ng-bootstrap/ng-bootstrap"
+    "@ng-bootstrap/ng-bootstrap",
+    "angular-vertical-timeline"
   ]
 }

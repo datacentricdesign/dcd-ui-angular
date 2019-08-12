@@ -50,18 +50,18 @@ export class ThingsComponent implements OnInit {
     }
 
     descriptionT(thing:Thing):string {
-      if(thing.description == "" || thing.description === undefined){
-        return 'No description available'
-      }else{
+      if(thing.description){
         return thing.description
+      }else{
+        return 'No description available'
       }
     }
 
     descriptionP(property:Property):string {
-      if(property.description == "" || property.description === undefined ){
-        return 'No description available'
-      }else{
+      if(property.description){
         return property.description 
+      }else{
+        return 'No description available'
       }
     }
 
@@ -129,7 +129,7 @@ export class ThingsComponent implements OnInit {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        if(result != undefined){this.add_thing(new Thing({
+        if(result){this.add_thing(new Thing({
           name : result.name,
           type : result.type,
           description : result.description
@@ -147,7 +147,7 @@ export class ThingsComponent implements OnInit {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        if(result != undefined){this.add_property(new Property({
+        if(result){this.add_property(new Property({
           name : result.name,
           type : result.type,
           description : result.description
@@ -197,7 +197,7 @@ export interface DialogData {
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button *ngIf = "data.name != '' && data.name != undefined " mat-button [mat-dialog-close]="data" cdkFocusInitial>Create</button>
+  <button *ngIf = "data.name" mat-button [mat-dialog-close]="data" cdkFocusInitial>Create</button>
 </div>
 `
 })
@@ -235,7 +235,7 @@ export class DialogAddThing {
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button *ngIf = "data.name != '' && data.name != undefined && data.type != '' && data.type != undefined " mat-button [mat-dialog-close]="data" cdkFocusInitial>Create</button>
+  <button *ngIf = "data.name && data.type" mat-button [mat-dialog-close]="data" cdkFocusInitial>Create</button>
 </div>
 `
 })

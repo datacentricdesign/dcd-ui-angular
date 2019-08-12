@@ -72,6 +72,9 @@ export class Property {
 
 
     constructor(params : {}) {
+        if(!params){
+            throw new TypeError('Thing : constructor param is undefined or null')
+        }else{
             this.id = params['id']
             this.name = params['name']
             this.description = params['description']
@@ -79,6 +82,7 @@ export class Property {
             this.setDimension(params['dimensions']);
             this.values = params['values'];
             this.entity_id = params ['entityId']
+        }
     }
 
     json(){
@@ -105,7 +109,7 @@ export class Property {
     }
     
     setDimension(param:any){
-    if(param === undefined){
+    if(!param){
         this.dimensions = []
     }else{
         if(param instanceof Array){
@@ -169,8 +173,8 @@ export class Thing {
     properties: Property[] = [];
    
    constructor(params : {}) {
-       if(params === undefined){
-           throw new TypeError('Thing : constructor param is undefined')
+       if(!params){
+           throw new TypeError('Thing : constructor param is undefined or null')
        }else{
        this.id = params['id']
        this.token = params['token']
@@ -236,7 +240,7 @@ export class Thing {
     })
 }
 
-private contains(property_id:string):boolean{
+    contains(property_id:string):boolean{
     for (var i = 0; i <= this.properties.length; i ++) {
         if(i < this.properties.length){
             if(property_id == this.properties[i].id){

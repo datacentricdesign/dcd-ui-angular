@@ -1,5 +1,6 @@
 import { Component, Input, OnInit,SimpleChanges,IterableDiffers,IterableDiffer} from '@angular/core';
 import {Thing, Property} from '../classes'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-property-types',
@@ -11,15 +12,14 @@ export class PropertyTypesComponent implements OnInit {
 
   @Input() properties : Property[];
   str_things : Thing[] = []
+  display_property: boolean = false;
+  property_picked:Property = new Property({})
 
   private differ: IterableDiffer<Property>;
 
-  constructor(private differs: IterableDiffers) {
-    this.differ = differs.find([]).create(null);
+  constructor(private differs: IterableDiffers, private router: Router) {
+    this.differ = this.differs.find([]).create(null);
   }
-  
- 
-
 
   ngOnInit() {
   }
@@ -31,21 +31,19 @@ export class PropertyTypesComponent implements OnInit {
       if(changes['collection']){
       this.str_things = []
       changes['collection'].forEach(property=>{
-        console.log('hey')
         this.AddType(this.str_things,property)
       })
-    }
-    }
+      }
+      }
     }
   }
   
   ngOnChanges(changes: SimpleChanges) {
-  if(!(changes.properties === undefined)){
+  if(changes.properties){
     this.str_things = []
     changes.properties.currentValue.forEach(property=>{
       this.AddType(this.str_things,property)
     })
-
   }
 }
 
@@ -77,6 +75,39 @@ export class PropertyTypesComponent implements OnInit {
           return false
       }
     }
+  }
+
+  descriptionT(thing:Thing):string {
+    if(thing.description){
+      return thing.description
+    }else{
+      return 'No description available'
+    }
+  }
+  descriptionP(property:Property):string {
+    if(property.description){
+      return property.description
+    }else{
+      return 'No description available' 
+    }
+  }
+
+  HasProperty(thing:Thing):boolean{
+    return thing.properties.length > 0
+  }
+
+  async setChild(property : Property){
+    this.property_picked = property
+  }
+
+  showDialog_property(property : Property) {
+      this.setChild(property).then(()=>this.display_property = true)
+      
+  }
+
+  nav_thing(thing:Thing){
+    this.router.navigate(['/page/thing'], {
+      state:{data:thing.json()}});
   }
 
 }

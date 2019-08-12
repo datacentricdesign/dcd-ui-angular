@@ -31,7 +31,7 @@ export class GoogleMapsComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
 
-    if(!(changes.property_values === undefined)){
+    if(changes.property_values){
       this.refresh()
       const values:any[]  = changes.property_values.currentValue
       if(this.checked){
@@ -65,7 +65,7 @@ export class GoogleMapsComponent implements OnInit {
 
             this.lat = last_lat
             this.lng = last_lng
-            if(last_lat !== undefined && last_lng !== undefined){
+            if(last_lat  && last_lng){
             this.markers={
               markers:  [
                 {

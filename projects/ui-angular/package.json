@@ -1,6 +1,6 @@
 {
   "name": "@datacentricdesign/ui-angular",
-  "version": "0.0.32",
+  "version": "0.0.34",
   "private": false,
   "peerDependencies": {
     "@angular/common": "^8.0.3",
@@ -16,6 +16,7 @@
     "@fortawesome/fontawesome-free": "^5.10.1",
     "@ng-bootstrap/ng-bootstrap": "^5.1.0",
     "@swimlane/ngx-charts": "^12.0.1",
+    "angular-vertical-timeline": "^0.6.0",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "d3-scale": "^3.0.1",

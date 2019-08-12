@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import { DatePipe } from '@angular/common'
 
 //@angular/material
 import {MatButtonModule} from '@angular/material/button';
@@ -31,11 +32,14 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 //ngx-clipboard 
 import { ClipboardModule } from 'ngx-clipboard';
 
-// Google Maps
+//Google Maps
 import { CUSTOM_ELEMENTS_SCHEMA} from '@angular/core'
 
 //Http
 import {HttpClientModule} from '@angular/common/http';
+
+//Vertical timeline
+import { VerticalTimelineModule } from 'angular-vertical-timeline';
 
 //Components
 import { UiAngularComponent } from './ui-angular.component';
@@ -46,7 +50,6 @@ import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { PropertyComponent } from './property/property.component';
 import { ThingComponent } from './thing/thing.component';
 import {ThingsComponent, DialogAddThing, DialogAddProperty, DialogJWT} from './things/things.component'
-import { ConstantThingsComponent } from './constant-things/constant-things.component';
 import { PropertyTypesComponent } from './property-types/property-types.component';
 import { DataCollectionsComponent } from './data-collections/data-collections.component';
 
@@ -61,7 +64,6 @@ import { DataCollectionsComponent } from './data-collections/data-collections.co
     PropertyComponent, 
     ThingComponent, 
     ThingsComponent, 
-    ConstantThingsComponent,
     DialogAddThing,
     DialogAddProperty,
     DialogJWT,
@@ -91,7 +93,8 @@ import { DataCollectionsComponent } from './data-collections/data-collections.co
     MatInputModule,
     MatTableModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    VerticalTimelineModule
   ],
   exports: [
     UiAngularComponent,
@@ -110,6 +113,7 @@ import { DataCollectionsComponent } from './data-collections/data-collections.co
     DialogAddThing,
     DialogAddProperty,
     DialogJWT
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class UiAngularModule { }

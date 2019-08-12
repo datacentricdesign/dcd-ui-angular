@@ -7,4 +7,3 @@ export * from './lib/ui-angular.component';
 export * from './lib/ui-angular.module';
 export * from './lib/classes'
 export * from './lib/http-client.service'
-export * from './lib/thing/thing.component'

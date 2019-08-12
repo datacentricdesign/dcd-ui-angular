@@ -38,6 +38,7 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
     "./node_modules/primeng/resources/themes/nova-light/theme.css",
     "./node_modules/primeng/resources/primeng.min.css",
     "./node_modules/@fortawesome/fontawesome-free/css/all.css",
+    "./node_modules/angular-vertical-timeline/dist/vertical-timeline.css",
     "./node_modules/@datacentricdesign/ui-angular/_theme.scss"
             ],
 "scripts": [
@@ -49,7 +50,7 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
 
 ### (Angular Universal) Settings
 
-#### Add post install script on your package.json : babel ngx-chart
+#### Add post install script on your package.json : babel ngx-chart & angular-vertical-timeline
 
  - `npm install @babel/cli --save-dev`
  - `npm install @babel/core --save-dev`
@@ -58,7 +59,8 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
  ```json
  {
  "compile_@swimlane_ngx-charts": "babel node_modules/@swimlane/ngx-charts -d node_modules/@swimlane/ngx-charts --presets @babel/preset-env",
-    "postinstall": "npm run compile_@swimlane_ngx-charts"
+ "compile_angular-vertical-timeline": "babel node_modules/angular-vertical-timeline -d node_modules/angular-vertical-timeline --presets @babel/preset-env",
+ "postinstall": "npm run compile_@swimlane_ngx-charts && npm run compile_angular-vertical-timeline"
  }
 ```
 

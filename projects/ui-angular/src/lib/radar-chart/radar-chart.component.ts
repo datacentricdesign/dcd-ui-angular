@@ -31,7 +31,7 @@ export class RadarChartComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
 
-    if(!(changes.property_values === undefined)){
+    if(changes.property_values){
       const values:any[] = changes.property_values.currentValue
       this.sliderSize = values.length -1
 

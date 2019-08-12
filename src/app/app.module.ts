@@ -11,6 +11,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component'
 
+//TO DELETE 
+import { VerticalTimelineModule } from 'angular-vertical-timeline';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,9 @@ import { HomeComponent } from './home/home.component'
     { path: '', component: HomeComponent },
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '404' }
-    ])
+    ]),
+    //TO DELETE
+    VerticalTimelineModule
   ],
   providers: [],
   bootstrap: [AppComponent]
