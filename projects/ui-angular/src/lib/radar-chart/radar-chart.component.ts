@@ -41,7 +41,7 @@ export class RadarChartComponent implements OnInit {
              this.date = new Date(this.property_values[this.index_slider][0])
              this.radarChartLabels = []
              var last_data:number[] = []
-             var maxValue : number = 0
+             var maxValue : number = this.getMaxValue()
 
              for( var i = 0; i<=this.property_dimensions.length;i++){
               if(i == this.property_dimensions.length){
@@ -50,8 +50,7 @@ export class RadarChartComponent implements OnInit {
               }else{
               const value =  values[this.index_slider][i+1]
               last_data.push(value)
-              this.radarChartLabels.push(this.property_dimensions['name'])
-              if (maxValue < value){maxValue = value}
+              this.radarChartLabels.push(this.property_dimensions[i].name)
               }
              }
 
@@ -61,6 +60,22 @@ export class RadarChartComponent implements OnInit {
           }
     }
 
+  }
+
+  getMaxValue():number{
+    var maxValue : number = 0
+    var count_value : number =0
+    for(var i = 0;i<this.property_values.length;i++){
+      count_value = count_value + 1
+      var count_dim = 0
+      for(var j = 0;j<this.property_dimensions.length;j++){
+         count_dim = count_dim +1
+         if (maxValue < this.property_values[i][j+1]){maxValue = this.property_values[i][j+1]}
+         if(count_value == this.property_values.length-1 && count_dim == this.property_dimensions.length-1){
+           return maxValue
+         }
+      }
+    }
   }
 
   handleChange(e) {

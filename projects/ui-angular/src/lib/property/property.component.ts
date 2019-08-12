@@ -22,6 +22,7 @@ export class PropertyComponent implements OnInit {
     mode : string = "Manual selected values"
     refresh : any
     showcalendar:boolean = true
+    dateTime = new Date();
         
      constructor(private service: HttpClientService,@Inject(PLATFORM_ID) private platformId: Object,) {}
  
@@ -29,9 +30,11 @@ export class PropertyComponent implements OnInit {
          if (isPlatformServer(this.platformId)) {
           console.log('Init Property component server'); 
              } else {
-              if(this.property.values.length > 0){
-                this.values = this.property.values
-              }
+               if(this.property.values){
+                if(this.property.values.length > 0){
+                  this.values = this.property.values
+                }
+               }
               if(this.rangeTime){
                 this.BrowserUniversalInit(this.rangeTime[0],this.rangeTime[1])
               }else{

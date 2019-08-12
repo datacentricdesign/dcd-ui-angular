@@ -13,12 +13,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  ts_1 = new Date().getTime() - 60000
-  ts_2 = new Date().getTime() - 30000
-  ts_3 =  new Date().getTime()
   
-  rangeTime = [this.ts_1,this.ts_3]
+  ts_0 = new Date().getTime() - 400000
+  ts_1 =  new Date().getTime()
+  
+  rangeTime = [this.ts_0,this.ts_1]
 
   apiKey = "YOUR_GOOGLE_API_KEY"
 
@@ -29,9 +28,12 @@ export class HomeComponent implements OnInit {
     name : 'name_radar',
     type:"ACCELEROMETER",
     values : [
+      [this.ts_0,0,1,1],
+      [this.ts_0+2000,0,3,9],
+      [this.ts_0+4000,0,8,5],
       [this.ts_1,1,2,3],
-      [this.ts_2,3,4,5],
-      [this.ts_3,5,3,1]
+      [this.ts_1+2000,3,4,5],
+      [this.ts_1+4000,5,3,1]
     ],
     dimensions: [
       {
@@ -61,9 +63,12 @@ export class HomeComponent implements OnInit {
     name : 'name_line',
     type : 'SPEED',
     values : [
-      [this.ts_1,1],
-      [this.ts_2,3],
-      [this.ts_3,5]
+      [this.ts_0,1],
+      [this.ts_0+2000,4],
+      [this.ts_0+4000,5],
+      [this.ts_1,3],
+      [this.ts_1+2000,2],
+      [this.ts_1+4000,0]
     ],
     dimensions: [
       {
@@ -80,9 +85,12 @@ export class HomeComponent implements OnInit {
     name : 'name_double',
     type : 'HEART_RATE',
     values : [
-      [this.ts_1,1,-1],
-      [this.ts_2,3,6],
-      [this.ts_3,5,9]
+      [this.ts_0,1,-1],
+      [this.ts_0+2000,3,6],
+      [this.ts_0+4000,2,7],
+      [this.ts_1,5,9],
+      [this.ts_1+2000,9,8],
+      [this.ts_1+4000,1,9]
     ],
     dimensions: [{
       name: "Heart Rate",
@@ -103,9 +111,12 @@ export class HomeComponent implements OnInit {
     name : 'name_loaction',
     type : 'LOCATION',
     values : [
-      [this.ts_1,52.0186,4.3782],
-      [this.ts_2,52.0183,4.3793],
-      [this.ts_2,52.0189,4.3799]
+      [this.ts_0,52.0186,4.3782],
+      [this.ts_0,52.0183,4.3793],
+      [this.ts_0,52.0180,4.3790],
+      [this.ts_1,52.0185,4.3795],
+      [this.ts_1,52.0187,4.3797],
+      [this.ts_1,52.0189,4.3799],
     ],
     dimensions: [
       {
@@ -161,7 +172,11 @@ export class HomeComponent implements OnInit {
   
 
     addProperty(){
-      console.log('click')
+      this.properties = []
+      let prop = new Property(this.line_property)
+      prop.id = 'line-id2'
+      prop.name = 'line-name2'
+      this.properties.push(prop)
       this.properties.push(this.property)
     }
 }

@@ -23,6 +23,7 @@ export class ThingComponent implements OnInit {
     mode : string = "Manual selected values"
     refresh : any
     first_from : Date
+    dateTime = new Date();
 
     constructor(
         private service: HttpClientService,
@@ -70,19 +71,21 @@ export class ThingComponent implements OnInit {
               const dim_unit = property.dimensions[i].unit
               const index = i
 
-              if(property.values.length > 0){
-                this.dimensions.push(new Dimension(
-                  property.id,
-                  property.name,
-                  dim_name,
-                  dim_unit,
-                  this.getData(index,property.values)
-                  ))
-                  const first_date = new Date(property.values[0][0])
-                  const last_date = new Date(property.values[property.values.length-1][0])
-                  this.rangeDates = [first_date,last_date]
-                  this.showcalendar = !this.showcalendar
-                  }
+              if(property.values){
+                if(property.values.length > 0){
+                  this.dimensions.push(new Dimension(
+                    property.id,
+                    property.name,
+                    dim_name,
+                    dim_unit,
+                    this.getData(index,property.values)
+                    ))
+                    const first_date = new Date(property.values[0][0])
+                    const last_date = new Date(property.values[property.values.length-1][0])
+                    this.rangeDates = [first_date,last_date]
+                    this.showcalendar = !this.showcalendar
+                    }
+              }
 
               this.service.get('api/things/'+property.entity_id+'/properties/'+property.id+'?from='+from+'&to='+to).subscribe(
                 data => {

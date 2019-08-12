@@ -1,14 +1,14 @@
-<h3 style = 'text-align: center' *ngIf = 'str_things.length == 0'>No values available</h3>
+<h3 style = 'text-align: center' *ngIf = 'data_collections.length == 0'>No values available</h3>
 <div class = "thing-container">
     <vertical-timeline> 
 
-        <vertical-timeline-card *ngFor="let thing of str_things" [dateValue]="getFromDate(thing)">
+        <vertical-timeline-card *ngFor="let collection of data_collections" [dateValue]="collection.from">
                     <div class = "thing_header">
                                                     <div class = "thing_title">
-                                                    <h4>{{thing.name}}</h4>
+                                                    <h4>{{getName(collection)}}</h4>
                                                     </div>
                                                     <div class = "thing_nav">
-                                                             <button mat-icon-button color="grey" (click)="nav_thing(thing)"  >
+                                                             <button mat-icon-button color="grey" (click)="nav_thing(collection)"  >
                                                                     <i class="fas fa-search" ></i>
                                                             </button>
                                                     </div>
@@ -23,7 +23,7 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                            <tr *ngFor="let property of thing.properties; index as i" >
+                                                            <tr *ngFor="let property of collection.properties; index as i" >
                                                                     <td>{{property.name}}</td>
                                                                     <td>{{property.id}}</td>
                                                                     <td>{{property.type}}</td> 
@@ -36,6 +36,10 @@
                                                     </tbody>
                                                   </table>
                         </div>
+        </vertical-timeline-card>
+
+        <vertical-timeline-card [dateValue]="now">
+                        <h4>Now</h4>
         </vertical-timeline-card>
        
     </vertical-timeline>

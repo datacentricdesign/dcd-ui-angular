@@ -1,4 +1,3 @@
-
 export class Dimension {
 
     property_id : string
@@ -31,6 +30,30 @@ export class Dimension {
         }
       }
     }
+
+export class DataCollection{
+    from :number
+    to :number
+    properties : Property[]
+
+    constructor(from:number,to:number,properties : Property[]){
+        this.from = from
+        this.to = to
+        this.properties = properties
+    }
+
+    contains(property_id:string):boolean{
+        for (var i = 0; i <= this.properties.length; i ++) {
+            if(i < this.properties.length){
+                if(property_id == this.properties[i].id){
+                    return true
+                }
+            }else{
+                return false
+            }
+          }
+    }
+}
 
 export class Person {
     id: string;
@@ -80,7 +103,9 @@ export class Property {
             this.description = params['description']
             this.type = params['type'];
             this.setDimension(params['dimensions']);
+            if(params['values']){
             this.values = params['values'];
+            }
             this.entity_id = params ['entityId']
         }
     }
