@@ -1,5 +1,6 @@
 .thing-container{
     display: inline-table;
+    margin-left: 1%;
     width: 100%;
 }
 
