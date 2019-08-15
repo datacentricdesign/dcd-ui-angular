@@ -11,6 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 //prime-ng
 import {SliderModule} from 'primeng/slider';
@@ -52,6 +53,7 @@ import { ThingComponent } from './thing/thing.component';
 import {ThingsComponent, DialogAddThing, DialogAddProperty, DialogJWT} from './things/things.component'
 import { PropertyTypesComponent } from './property-types/property-types.component';
 import { DataCollectionsComponent } from './data-collections/data-collections.component';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { DataCollectionsComponent } from './data-collections/data-collections.co
     DialogAddProperty,
     DialogJWT,
     PropertyTypesComponent,
-    DataCollectionsComponent
+    DataCollectionsComponent,
+    StatsComponent
   ],
   imports: [
     CommonModule,
@@ -94,7 +97,8 @@ import { DataCollectionsComponent } from './data-collections/data-collections.co
     MatTableModule,
     NgbModule,
     FormsModule,
-    VerticalTimelineModule
+    VerticalTimelineModule,
+    MatProgressBarModule
   ],
   exports: [
     UiAngularComponent,
@@ -106,7 +110,8 @@ import { DataCollectionsComponent } from './data-collections/data-collections.co
     ThingComponent,
     ThingsComponent,
     PropertyTypesComponent,
-    DataCollectionsComponent
+    DataCollectionsComponent,
+    StatsComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
