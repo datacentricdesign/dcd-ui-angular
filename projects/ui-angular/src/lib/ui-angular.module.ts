@@ -11,7 +11,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 //prime-ng
 import {SliderModule} from 'primeng/slider';
@@ -27,10 +26,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './line-chart/line-chart.component';
 
-//@swimlane/ngx-charts 
+//@swimlane/ngx-charts
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-//ngx-clipboard 
+//ngx-clipboard
 import { ClipboardModule } from 'ngx-clipboard';
 
 //Google Maps
@@ -54,24 +53,28 @@ import {ThingsComponent, DialogAddThing, DialogAddProperty, DialogJWT} from './t
 import { PropertyTypesComponent } from './property-types/property-types.component';
 import { DataCollectionsComponent } from './data-collections/data-collections.component';
 import { StatsComponent } from './stats/stats.component';
+import { PropertyVideoComponent } from './property-video/property-video.component';
+import { PropertyClassComponent } from './property-class/property-class.component';
 
 @NgModule({
   declarations: [
-    UiAngularComponent, 
-    RadarChartComponent, 
-    LineChartComponent, 
-    DoubleAxisChartComponent, 
-    DoubleDimensionsChartComponent, 
-    GoogleMapsComponent, 
-    PropertyComponent, 
-    ThingComponent, 
-    ThingsComponent, 
+    UiAngularComponent,
+    RadarChartComponent,
+    LineChartComponent,
+    DoubleAxisChartComponent,
+    DoubleDimensionsChartComponent,
+    GoogleMapsComponent,
+    PropertyComponent,
+    ThingComponent,
+    ThingsComponent,
     DialogAddThing,
     DialogAddProperty,
     DialogJWT,
     PropertyTypesComponent,
     DataCollectionsComponent,
-    StatsComponent
+    StatsComponent,
+    PropertyVideoComponent,
+    PropertyClassComponent
   ],
   imports: [
     CommonModule,
@@ -97,8 +100,8 @@ import { StatsComponent } from './stats/stats.component';
     MatTableModule,
     NgbModule,
     FormsModule,
-    VerticalTimelineModule,
-    MatProgressBarModule
+    VerticalTimelineModule
+    // MatProgressBarModule
   ],
   exports: [
     UiAngularComponent,
@@ -111,7 +114,9 @@ import { StatsComponent } from './stats/stats.component';
     ThingsComponent,
     PropertyTypesComponent,
     DataCollectionsComponent,
-    StatsComponent
+    StatsComponent,
+    PropertyVideoComponent,
+    PropertyClassComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [

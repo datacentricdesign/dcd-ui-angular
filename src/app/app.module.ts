@@ -5,14 +5,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {UiAngularModule} from 'ui-angular'
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component'
 
-//TO DELETE 
+//TO DELETE
 import { VerticalTimelineModule } from 'angular-vertical-timeline';
+import {UiAngularModule} from "../../projects/ui-angular/src/lib/ui-angular.module";
 
 @NgModule({
   declarations: [
@@ -26,12 +25,13 @@ import { VerticalTimelineModule } from 'angular-vertical-timeline';
     AppRoutingModule,
     UiAngularModule,
     RouterModule.forRoot([
-    { path: '', component: HomeComponent },
-    { path: '404', component: NotFoundComponent },
-    { path: '**', redirectTo: '404' }
+      {path: '', component: HomeComponent},
+      {path: '404', component: NotFoundComponent},
+      {path: '**', redirectTo: '404'}
     ]),
     //TO DELETE
-    VerticalTimelineModule
+    VerticalTimelineModule,
+    UiAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]
