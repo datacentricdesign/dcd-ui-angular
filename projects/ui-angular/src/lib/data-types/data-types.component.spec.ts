@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PropertyTypesComponent } from './property-types.component';
+import { DataTypesComponent } from './data-types.component';
 
-describe('PropertyTypesComponent', () => {
-  let component: PropertyTypesComponent;
-  let fixture: ComponentFixture<PropertyTypesComponent>;
+describe('DataTypesComponent', () => {
+  let component: DataTypesComponent;
+  let fixture: ComponentFixture<DataTypesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropertyTypesComponent ]
+      declarations: [ DataTypesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PropertyTypesComponent);
+    fixture = TestBed.createComponent(DataTypesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

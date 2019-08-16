@@ -214,12 +214,12 @@ Display all your personnal things of the hub.
 <lib-things></lib-thing>
 ```
 
-#### Property Types
+#### Data Types
 
-Display all the sorted by types
+Display all the properties sorted by types
 
 ```html
-<lib-property-types [properties]="properties"></lib-property-types>
+<lib-data-types [properties]="properties"></lib-data-types>
 ```
 
 ```ts
@@ -234,7 +234,13 @@ properties = [
     ]
 ```
 
-#### Data Collection Types
+#### Data Collection
+
+Display all the properties sorted by data collections
+
+```html
+<lib-data-collections [properties]="properties"></lib-data-collections>
+```
 
 
 

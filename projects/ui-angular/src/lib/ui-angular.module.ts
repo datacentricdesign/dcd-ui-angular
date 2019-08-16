@@ -11,6 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 //prime-ng
 import {SliderModule} from 'primeng/slider';
@@ -50,11 +51,12 @@ import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { PropertyComponent } from './property/property.component';
 import { ThingComponent } from './thing/thing.component';
 import {ThingsComponent, DialogAddThing, DialogAddProperty, DialogJWT} from './things/things.component'
-import { PropertyTypesComponent } from './property-types/property-types.component';
 import { DataCollectionsComponent } from './data-collections/data-collections.component';
 import { StatsComponent } from './stats/stats.component';
 import { PropertyVideoComponent } from './property-video/property-video.component';
 import { PropertyClassComponent } from './property-class/property-class.component';
+import { UserComponent } from './user/user.component';
+import { DataTypesComponent } from './data-types/data-types.component';
 
 @NgModule({
   declarations: [
@@ -70,11 +72,12 @@ import { PropertyClassComponent } from './property-class/property-class.componen
     DialogAddThing,
     DialogAddProperty,
     DialogJWT,
-    PropertyTypesComponent,
     DataCollectionsComponent,
     StatsComponent,
     PropertyVideoComponent,
-    PropertyClassComponent
+    PropertyClassComponent,
+    UserComponent,
+    DataTypesComponent
   ],
   imports: [
     CommonModule,
@@ -100,8 +103,8 @@ import { PropertyClassComponent } from './property-class/property-class.componen
     MatTableModule,
     NgbModule,
     FormsModule,
-    VerticalTimelineModule
-    // MatProgressBarModule
+    VerticalTimelineModule,
+    MatProgressBarModule
   ],
   exports: [
     UiAngularComponent,
@@ -112,11 +115,12 @@ import { PropertyClassComponent } from './property-class/property-class.componen
     PropertyComponent,
     ThingComponent,
     ThingsComponent,
-    PropertyTypesComponent,
+    DataTypesComponent,
     DataCollectionsComponent,
     StatsComponent,
     PropertyVideoComponent,
-    PropertyClassComponent
+    PropertyClassComponent,
+    UserComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [

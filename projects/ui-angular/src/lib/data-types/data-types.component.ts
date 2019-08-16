@@ -3,12 +3,11 @@ import {Thing, Property} from '../classes'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'lib-property-types',
-  templateUrl: './property-types.component.html',
-  styleUrls: ['./property-types.component.css']
+  selector: 'lib-data-types',
+  templateUrl: './data-types.component.html',
+  styleUrls: ['./data-types.component.css']
 })
-
-export class PropertyTypesComponent implements OnInit {
+export class DataTypesComponent implements OnInit {
 
   @Input() properties : Property[];
   str_things : Thing[] = []
