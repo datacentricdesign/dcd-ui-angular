@@ -5,7 +5,7 @@ export class Dimension {
     dimension : string
     unit :string
     data : {value:number,name:Date}[] = []
-    
+
     constructor(property_id,property_name:string,dimension:string,unit:string,data: {value:number,name:Date}[]){
         this.property_id = property_id
         this.property_name = property_name
@@ -72,7 +72,7 @@ export class Person {
         this.password = password
         this.properties = properties
     }
-    
+
     to_json():{}{
         return{
             id:this.id,
@@ -92,11 +92,12 @@ export class Property {
     dimensions: any[] = [];
     values: any[] = [];
     entity_id:string;
+    classes:string[];
 
 
     constructor(params : {}) {
         if(!params){
-            throw new TypeError('Thing : constructor param is undefined or null')
+            throw new TypeError('Property : constructor param is undefined or null')
         }else{
             this.id = params['id']
             this.name = params['name']
@@ -107,6 +108,7 @@ export class Property {
             this.values = params['values'];
             }
             this.entity_id = params ['entityId']
+          this.classes = params['classes']
         }
     }
 
@@ -121,7 +123,7 @@ export class Property {
             entityId : this.entity_id
         }
     }
-    
+
     getDimArratName():string[]{
         var array :  string[] = []
         for(var i = 0; i <= this.dimensions.length; i++){
@@ -132,7 +134,7 @@ export class Property {
               }
         }
     }
-    
+
     setDimension(param:any){
     if(!param){
         this.dimensions = []
@@ -196,7 +198,7 @@ export class Thing {
     description: string;
     type: string
     properties: Property[] = [];
-   
+
    constructor(params : {}) {
        if(!params){
            throw new TypeError('Thing : constructor param is undefined or null')
@@ -206,7 +208,7 @@ export class Thing {
        this.name = params['name']
        this.description = params['description']
        this.type = params['type']
-       
+
        if(params['properties'] instanceof Array){
         params['properties'].forEach(property => {
             if(property instanceof Property){
@@ -214,7 +216,7 @@ export class Thing {
             }else{
                 if(property.constructor === {}.constructor){
                     this.properties.push(new Property({
-                        entity : this, 
+                        entity : this,
                         id : property['id'],
                         name : property['name'],
                         description : property['description'],

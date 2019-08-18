@@ -1,19 +1,21 @@
-<div>
-<!--  <div id='property_" + property.id + "'>-->
-<!--    <div id='classes_" + property.id + "'>-->
-<!--      {{property.name}} ({{property.id}})-->
-<!--      <button ng-repeat="clazz in property.classes"-->
-<!--              class="btn"-->
-<!--              style="background-color: {{colors[clazz.value]}}">-->
-<!--              onclick="addLabel('{{thing.id}}','{{property.id}}','{{clazz.value}}')">-->
-<!--        {{clazz.name}}-->
-<!--      </button>-->
-<!--    </div>-->
-<!--  <div>-->
+
+<!--<div id="timeline"></div>-->
+
+<!--<div id="classes_{{property.id}}">-->
+<!--  {{property.name}} ({{property.id}})-->
+<!--  <button *ngFor="let clazz in property.classes"-->
+<!--          class="btn"-->
+<!--          ng-style="{'background-color': colors[clazz.value]}">-->
+<!--    onclick="addLabel('{{property.entity_id}}','{{property.id}}-->
+<!--    ','{{clazz.value}}')">-->
+<!--    {{clazz.name}}-->
+<!--  </button>-->
+<!--</div>-->
+<!--<div>-->
 <!--  <input type="text" value="New Class" id="newClass_{{property.id}}"/>-->
 <!--  <i class="material-icons"-->
 <!--     style="cursor: pointer"-->
-<!--     onclick="addClass({{thing.id}},{{property.id}})" >-->
+<!--     (click)="addClass('{{property.entity_id}}', '{{property.id}}')">-->
 <!--    add-->
 <!--  </i>-->
-</div>
+<!--</div>-->
