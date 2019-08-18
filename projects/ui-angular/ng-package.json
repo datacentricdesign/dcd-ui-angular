@@ -33,6 +33,7 @@
     "@fortawesome/fontawesome-free",
     "bootstrap",
     "@ng-bootstrap/ng-bootstrap",
-    "angular-vertical-timeline"
+    "angular-vertical-timeline",
+    "d3-timelines"
   ]
 }
