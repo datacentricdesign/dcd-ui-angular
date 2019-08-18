@@ -1,6 +1,6 @@
 {
   "name": "@datacentricdesign/ui-angular",
-  "version": "0.0.47",
+  "version": "0.1.0-dev",
   "private": false,
   "peerDependencies": {
     "@angular/common": "^8.0.3",
