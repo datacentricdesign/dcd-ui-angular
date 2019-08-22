@@ -287,7 +287,7 @@ export class Task {
     from : number 
     to : number 
     description:string
-    registred_at:number
+    registered_at:number
     actor_entity_id : string
   
     constructor(params:{}){
@@ -299,7 +299,7 @@ export class Task {
             this.description = params['description']
             this.from = params['to']
             this.to = params['from']
-            this.registred_at = params['registeredAt']
+            this.registered_at = params['registeredAt']
 
             if(params['types'] instanceof Array){
                 this.types = params['types']
@@ -320,6 +320,10 @@ export class Task {
             to : this.to,
             actor_entity_id : this.actor_entity_id
         }
+    }
+
+    getDate():Date{
+    return new Date(this.registered_at)
     }
   
 }
