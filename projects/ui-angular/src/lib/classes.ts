@@ -299,7 +299,7 @@ export class Task {
             this.description = params['description']
             this.from = params['to']
             this.to = params['from']
-            this.registred_at = params['registredAt']
+            this.registred_at = params['registeredAt']
 
             if(params['types'] instanceof Array){
                 this.types = params['types']
