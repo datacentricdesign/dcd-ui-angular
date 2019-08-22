@@ -1,60 +1,3 @@
-export class Dimension {
-
-    property_id : string
-    property_name : string
-    dimension : string
-    unit :string
-    data : {value:number,name:Date}[] = []
-
-    constructor(property_id,property_name:string,dimension:string,unit:string,data: {value:number,name:Date}[]){
-        this.property_id = property_id
-        this.property_name = property_name
-        this.dimension=dimension
-        this.unit=unit
-        this.data = data
-    }
-
-    static getData(index,values:any[]): {value:number,name:Date}[]{
-        var array :  {value:number,name:Date}[] = []
-        for(var i = 0; i <= values.length; i++){
-          if(i == values.length){
-            return array
-          }else{
-              array.push(
-                {
-                  value: values[i][index+1],
-                  name: new Date(values[i][0])
-                }
-              )
-          }
-        }
-      }
-    }
-
-export class DataCollection{
-    from :number
-    to :number
-    properties : Property[]
-
-    constructor(from:number,to:number,properties : Property[]){
-        this.from = from
-        this.to = to
-        this.properties = properties
-    }
-
-    contains(property_id:string):boolean{
-        for (var i = 0; i <= this.properties.length; i ++) {
-            if(i < this.properties.length){
-                if(property_id == this.properties[i].id){
-                    return true
-                }
-            }else{
-                return false
-            }
-          }
-    }
-}
-
 export class Person {
     id: string;
     name: string;
@@ -83,6 +26,95 @@ export class Person {
     }
 }
 
+export class Thing {
+    id: string;
+    token: string;
+    name: string;
+    description: string;
+    type: string
+    properties: Property[] = [];
+
+   constructor(params : {}) {
+       if(!params){
+           throw new TypeError('Thing : constructor param is undefined or null')
+       }else{
+       this.id = params['id']
+       this.token = params['token']
+       this.name = params['name']
+       this.description = params['description']
+       this.type = params['type']
+
+       if(params['properties'] instanceof Array){
+        params['properties'].forEach(property => {
+            if(property instanceof Property){
+                this.properties.push(property)
+            }else{
+                if(property.constructor === {}.constructor){
+                    this.properties.push(new Property({
+                        entity : this,
+                        id : property['id'],
+                        name : property['name'],
+                        description : property['description'],
+                        type : property['type'],
+                        dimensions : property['dimensions'],
+                        values : property['values'],
+                        entityId : property['entityId']
+                    }
+                    ))
+                }
+            }
+        })
+    }
+   }
+   }
+
+   json():{}{
+       return {
+       id : this.id,
+       name : this.name,
+       type : this.type,
+       description: this.description,
+       properties : this.properties_to_array()
+       }
+   }
+
+
+
+   private properties_to_array():Array<any>{
+       var res = []
+       for (var i = 0; i <= this.properties.length; i ++) {
+           if(i < this.properties.length){
+               const property = this.properties[i]
+               res.push(property.json())
+           }else{
+               return res
+           }
+         }
+   }
+
+   update_properties(properties:Array<Property>){
+    properties.forEach(property => {
+                if(!this.contains(property.id)){
+                    this.properties.push(property)
+                }else{
+                    console.log(property.id,'already there')
+                }
+    })
+}
+
+    contains(property_id:string):boolean{
+    for (var i = 0; i <= this.properties.length; i ++) {
+        if(i < this.properties.length){
+            if(property_id == this.properties[i].id){
+                return true
+            }
+        }else{
+            return false
+        }
+      }
+}
+
+}
 
 export class Property {
     id: string;
@@ -190,93 +222,156 @@ export enum PropertyType{
     CLASS = "CLASS"
 }
 
+export class DataCollection{
+    from :number
+    to :number
+    properties : Property[]
 
-export class Thing {
-    id: string;
-    token: string;
-    name: string;
-    description: string;
-    type: string
-    properties: Property[] = [];
-
-   constructor(params : {}) {
-       if(!params){
-           throw new TypeError('Thing : constructor param is undefined or null')
-       }else{
-       this.id = params['id']
-       this.token = params['token']
-       this.name = params['name']
-       this.description = params['description']
-       this.type = params['type']
-
-       if(params['properties'] instanceof Array){
-        params['properties'].forEach(property => {
-            if(property instanceof Property){
-                this.properties.push(property)
-            }else{
-                if(property.constructor === {}.constructor){
-                    this.properties.push(new Property({
-                        entity : this,
-                        id : property['id'],
-                        name : property['name'],
-                        description : property['description'],
-                        type : property['type'],
-                        dimensions : property['dimensions'],
-                        values : property['values'],
-                        entityId : property['entityId']
-                    }
-                    ))
-                }
-            }
-        })
+    constructor(from:number,to:number,properties : Property[]){
+        this.from = from
+        this.to = to
+        this.properties = properties
     }
-   }
-   }
-
-   json():{}{
-       return {
-       id : this.id,
-       name : this.name,
-       type : this.type,
-       description: this.description,
-       properties : this.properties_to_array()
-       }
-   }
-
-
-
-   private properties_to_array():Array<any>{
-       var res = []
-       for (var i = 0; i <= this.properties.length; i ++) {
-           if(i < this.properties.length){
-               const property = this.properties[i]
-               res.push(property.json())
-           }else{
-               return res
-           }
-         }
-   }
-
-   update_properties(properties:Array<Property>){
-    properties.forEach(property => {
-                if(!this.contains(property.id)){
-                    this.properties.push(property)
-                }else{
-                    console.log(property.id,'already there')
-                }
-    })
-}
 
     contains(property_id:string):boolean{
-    for (var i = 0; i <= this.properties.length; i ++) {
-        if(i < this.properties.length){
-            if(property_id == this.properties[i].id){
-                return true
+        for (var i = 0; i <= this.properties.length; i ++) {
+            if(i < this.properties.length){
+                if(property_id == this.properties[i].id){
+                    return true
+                }
+            }else{
+                return false
             }
-        }else{
-            return false
+          }
+    }
+}
+
+export class Dimension {
+
+    property_id : string
+    property_name : string
+    dimension : string
+    unit :string
+    data : {value:number,name:Date}[] = []
+
+    constructor(property_id,property_name:string,dimension:string,unit:string,data: {value:number,name:Date}[]){
+        this.property_id = property_id
+        this.property_name = property_name
+        this.dimension=dimension
+        this.unit=unit
+        this.data = data
+    }
+
+    static getData(index,values:any[]): {value:number,name:Date}[]{
+        var array :  {value:number,name:Date}[] = []
+        for(var i = 0; i <= values.length; i++){
+          if(i == values.length){
+            return array
+          }else{
+              array.push(
+                {
+                  value: values[i][index+1],
+                  name: new Date(values[i][0])
+                }
+              )
+          }
         }
       }
 }
+
+export class Task {
+
+    id : string
+    name: string;
+    types:string[];
+    from : number 
+    to : number 
+    description:string
+    registred_at:number
+    actor_entity_id : string
+  
+    constructor(params:{}){
+        if(!params){
+            throw new TypeError('Task : constructor param is undefined or null')
+        }else{
+            this.id = params['id']
+            this.name = params['name']
+            this.description = params['description']
+            this.from = params['to']
+            this.to = params['from']
+            this.registred_at = params['registredAt']
+
+            if(params['types'] instanceof Array){
+                this.types = params['types']
+            }else if(params['types'] instanceof String){
+                this.types = params['types'].split(',')
+            }else{
+                this.types = []
+            }
+        }
+    }
+
+    json(){
+        return {
+            name: this.name,
+            description: this.description,
+            types: this.types,
+            from : this.from,
+            to : this.to,
+            actor_entity_id : this.actor_entity_id
+        }
+    }
+  
+}
+
+export class Resource {
+
+    id : string
+    task_id: string;
+    milestones:Milestone[] = []
+  
+    constructor(params:{}){
+        if(!params){
+            throw new TypeError('Resource : constructor param is undefined or null')
+        }else{
+            this.id = params['id']
+            this.task_id = params['taskId']
+
+            if(params['milestones'] instanceof Array){
+                params['milestones'].forEach(milestone => {
+                    if(milestone instanceof Milestone){
+                        this.milestones.push(milestone)
+                    }else{
+                        if(milestone.constructor === {}.constructor){
+                            this.milestones.push(new Milestone(milestone))
+                        }
+                    }
+                })
+            }
+        }
+    }
+}
+
+export class Milestone {
+
+    timestamp : number
+    shared_properties : string[]
+    status : string
+
+    constructor(params:{}){
+        if(!params){
+            throw new TypeError('Milestone : constructor param is undefined or null')
+        }else{
+            this.timestamp = params['timestamp']
+            this.status = params['status']
+            if(params['shared_properties'] instanceof Array){
+                this.shared_properties = params['shared_properties']
+            }else if(params['shared_properties'] instanceof String){
+                this.shared_properties = params['shared_properties'].split(',')
+            }else{
+                this.shared_properties = []
+            }
+        }
+    }
 
 }
