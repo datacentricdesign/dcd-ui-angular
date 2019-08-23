@@ -289,8 +289,10 @@ export class Task {
     description:string
     registered_at:number
     actor_entity_id : string
+
+    resources : Resource[] = []
   
-    constructor(params:{}){
+    constructor(params:{},resources:any[] = undefined){
         if(!params){
             throw new TypeError('Task : constructor param is undefined or null')
         }else{
@@ -307,6 +309,18 @@ export class Task {
                 this.types = params['types'].split(',')
             }else{
                 this.types = []
+            }
+
+            if(resources){
+                if(resources instanceof Array){
+                    resources.forEach(resource => {
+                        if(resource instanceof Resource){
+                            this.resources.push(resource)
+                        }else{
+                            this.resources.push(new Resource(resource))
+                        }
+                    })
+                }
             }
         }
     }
@@ -370,7 +384,7 @@ export class Milestone {
             this.status = params['status']
             if(params['shared_properties'] instanceof Array){
                 this.shared_properties = params['shared_properties']
-            }else if(params['shared_properties'] instanceof String){
+            }else if(typeof params['shared_properties'] === 'string' || params['shared_properties'] instanceof String){
                 this.shared_properties = params['shared_properties'].split(',')
             }else{
                 this.shared_properties = []
