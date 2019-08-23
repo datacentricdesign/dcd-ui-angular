@@ -302,6 +302,7 @@ export class Task {
             this.from = params['to']
             this.to = params['from']
             this.registered_at = params['registeredAt']
+            this.actor_entity_id = params['actorEntityId']
 
             if(params['types'] instanceof Array){
                 this.types = params['types']
