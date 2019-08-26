@@ -299,8 +299,8 @@ export class Task {
             this.id = params['id']
             this.name = params['name']
             this.description = params['description']
-            this.from = params['to']
-            this.to = params['from']
+            this.from = params['from']
+            this.to = params['to']
             this.registered_at = params['registeredAt']
             this.actor_entity_id = params['actorEntityId']
 
