@@ -17,7 +17,6 @@ export class ThingComponent implements OnInit {
     dimensions:Dimension[] = []
     selectedDimensions:Dimension[] = []
     displayedColumns: string[] = ['name', 'type', 'settings'];
-    RangeTime: number[];
     showcalendar:boolean = true
     checked:boolean = false
     mode : string = "Manual selected values"
@@ -46,7 +45,6 @@ export class ThingComponent implements OnInit {
                     description : history.state.data.description,
                     properties : history.state.data.properties
                 })
-
                 if(!history.state.range){
                   this.BrowserUniversalInit(0,(new Date).getTime())
                 }else{
@@ -63,6 +61,7 @@ export class ThingComponent implements OnInit {
         }
     }
     BrowserUniversalInit(from:number,to:number) {
+      this.rangeTime = [from,to]
       this.rangeDates = [new Date(from),new Date(to)]
         var init = true
         for (let property of this.thing.properties) {

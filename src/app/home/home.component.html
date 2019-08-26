@@ -25,7 +25,7 @@
   </lib-double-dimensions-chart>
   </div>
 
-  <div class ="component-container">
+<div class ="component-container">
       <h3 style="text-align: center">Google Maps component</h3>
     <lib-google-maps
         [property_values] = "location_property.values"
@@ -36,13 +36,7 @@
     </lib-google-maps>
   </div>
 
-  <div class ="component-container">
-    <h3 style="text-align: center">Data Collection component</h3>
-    <lib-data-collections [properties]="properties"></lib-data-collections>
-    <button (click)="addProperty()">Test</button>
-  </div>
-
-  <div class ="component-container">
+<div class ="component-container">
     <h3 style="text-align: center">Property Video</h3>
     <dcd-property-video></dcd-property-video>
   </div>
@@ -50,9 +44,9 @@
   <div class ="component-container">
     <h3 style="text-align: center">Property Class</h3>
     <dcd-property-class></dcd-property-class>
-  </div>
+</div>
 
-  <!-- These components work correctly only with a SSR setup with the OAuth2 strategy & routerAPI of the sdk
+  <!-- These components work correctly only with a SSR setup with the OAuth2 strategy & routerAPI of the sdk js
   <div class ="component-container">
       <h3 style="text-align: center">Property component</h3>
       <lib-property [property]="property" [rangeTime] = "rangeTime" ></lib-property>
@@ -70,7 +64,7 @@
 
   <div class ="component-container">
     <h3 style="text-align: center">Property Types component</h3>
-    <lib-property-types [properties]="properties"></lib-property-types>
+    <lib-data-types [properties]="properties"></lib-data-types>
     <button (click)="addProperty()">Test</button>
   </div>
 

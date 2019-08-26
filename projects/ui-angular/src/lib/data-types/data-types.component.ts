@@ -58,8 +58,9 @@ export class DataTypesComponent implements OnInit {
         name : property.type,
         type : property.type,
         description : property.type,
-        properties : [property]
+        //properties : [property]
       })
+      new_thing.properties.push(property)
       str_things.push(new_thing)
     }
   }
