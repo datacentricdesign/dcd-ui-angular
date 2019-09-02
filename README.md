@@ -1,5 +1,10 @@
 # DCD UI Angular
 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/datacentricdesign/dcd-ui-angular)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/datacentricdesign/dcd-ui-angular)
+![NPM](https://img.shields.io/npm/l/@datacentricdesign/ui-angular)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@datacentricdesign/ui-angular)
+
 A set of Angular components to facilitate the design of web app for the 
 Data-Centric Design Hub.
 
