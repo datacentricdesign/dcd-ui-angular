@@ -166,17 +166,17 @@ export class HomeComponent implements OnInit {
   properties = [
     new Property(this.line_property),
     new Property(this.location_property),
-    new Property(this.radar_property),
+    //new Property(this.radar_property),
     new Property(this.radar_property)
   ]
   
 
     addProperty(){
-      this.properties = []
+      //this.properties = []
       let prop = new Property(this.line_property)
       prop.id = 'line-id2'
       prop.name = 'line-name2'
       this.properties.push(prop)
-      this.properties.push(this.property)
+      //this.properties.push(this.property)
     }
 }

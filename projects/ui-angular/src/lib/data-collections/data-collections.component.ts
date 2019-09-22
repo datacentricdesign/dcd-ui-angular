@@ -179,7 +179,9 @@ export class DataCollectionsComponent implements OnInit {
       state:{data:{
         name : this.getName(collection),
         properties : collection.properties
-      }}});
+      },
+      range : [collection.from,collection.to]
+    }});
   }
 
   getName(collection:DataCollection){

@@ -106,7 +106,7 @@ export class StatsComponent implements OnInit {
     if(this.stat_range){
       if(this.stat_range.length == 2){
         if(this.stat_range[0] && this.stat_range[1]){
-          this.GetStatsValues(this.stat_types,this.stat_range[0].getTime(),this.stat_range[1].getTime())
+          this.GetStatsValues(this.stat_types,this.stat_range[0].getTime(),this.stat_range[1].getTime()+24*60*60*1000)
         }
       }else{
         this.GetStatsValues(this.stat_types)
