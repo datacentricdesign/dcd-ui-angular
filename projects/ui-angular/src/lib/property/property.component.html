@@ -11,39 +11,45 @@
                      {{mode}}
             </mat-slide-toggle>
     </div>
-    
+
     <div class = "chart-container" *ngIf = "chart_type == 'MAPS'">
-            <lib-google-maps 
+            <lib-google-maps
                     [property_values] = "values"
-                    [property_dimensions] ="property.dimensions" 
-                    [property_entity_id] ="property.entity_id"  
-                    [apiKey]="apiKey" 
+                    [property_dimensions] ="property.dimensions"
+                    [property_entity_id] ="property.entity_id"
+                    [apiKey]="apiKey"
                     [checked]="checked">
             </lib-google-maps>
     </div>
-    
+
     <div class = "chart-container" *ngIf = "chart_type == 'RADAR'">
-            <lib-radar-chart 
+            <lib-radar-chart
                     [property_values] = "values"
-                    [property_dimensions] = "property.dimensions" 
+                    [property_dimensions] = "property.dimensions"
                     [property_type] = "property.type"
                     >
             </lib-radar-chart>
     </div>
-    
+
     <div class = "chart-container" *ngIf = "chart_type == 'DOUBLE'">
-            <lib-double-dimensions-chart 
+            <lib-double-dimensions-chart
                     [property_values] = "values"
                     [property_dimensions] ="property.dimensions"
                     >
             </lib-double-dimensions-chart>
     </div>
-    
+
     <div class = "chart-container" *ngIf = "chart_type == 'LINE'">
-            <lib-line-chart 
+            <lib-line-chart
                     [property_dimensions] ="property.dimensions"
                     [property_values] = "values">
             </lib-line-chart>
     </div>
-    
+
+    <div class = "chart-container" *ngIf = "chart_type == 'TEXT'">
+      <lib-log
+        [property_values] = "values">
+      </lib-log>
+    </div>
+
 </div>

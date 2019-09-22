@@ -18,7 +18,7 @@ Data-Centric Design Hub.
 - `npm run start`
 - Go to http://localhost:4200/
 
-## UI angular library devellopement
+## UI angular library developement
 
 Run `ng generate component component-name --project ui-angular` to generate a new 
 component. You can also use `ng generate directive|pipe|service|class|guard|interface

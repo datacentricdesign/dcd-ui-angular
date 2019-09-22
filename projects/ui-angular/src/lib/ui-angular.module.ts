@@ -57,6 +57,7 @@ import { PropertyVideoComponent } from './property-video/property-video.componen
 import { PropertyClassComponent } from './property-class/property-class.component';
 import { UserComponent } from './user/user.component';
 import { DataTypesComponent } from './data-types/data-types.component';
+import { LogComponent } from './log/log.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { DataTypesComponent } from './data-types/data-types.component';
     PropertyVideoComponent,
     PropertyClassComponent,
     UserComponent,
-    DataTypesComponent
+    DataTypesComponent,
+    LogComponent
   ],
   imports: [
     CommonModule,
