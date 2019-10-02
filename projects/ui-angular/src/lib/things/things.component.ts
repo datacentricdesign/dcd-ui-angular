@@ -26,7 +26,7 @@ export class ThingsComponent implements OnInit {
 
     ngOnInit(): void {
       if (isPlatformServer(this.platformId)) {
-        console.log('Init Things component server'); 
+        console.log('Init Things component server');
         } else {
             this.BrowserUniversalInit()
       }
@@ -59,7 +59,7 @@ export class ThingsComponent implements OnInit {
 
     descriptionP(property:Property):string {
       if(property.description){
-        return property.description 
+        return property.description
       }else{
         return 'No description available'
       }
@@ -75,7 +75,7 @@ export class ThingsComponent implements OnInit {
 
     showDialog_property(property : Property) {
         this.setChild(property).then(()=>this.display_property = true)
-        
+
     }
 
     delete_thing(thing:Thing){
@@ -116,7 +116,7 @@ export class ThingsComponent implements OnInit {
         width: '250px',
         data: {thing:thing,jwt:jwt}
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
 
       });
@@ -127,7 +127,7 @@ export class ThingsComponent implements OnInit {
         width: '250px',
         data: {name: '', type: '',description:''}
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
         if(result){this.add_thing(new Thing({
           name : result.name,
@@ -145,7 +145,7 @@ export class ThingsComponent implements OnInit {
         width: '250px',
         data: {name: '', type: '',description:'',thing:thing}
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
         if(result){this.add_property(new Property({
           name : result.name,
@@ -169,7 +169,7 @@ export class ThingsComponent implements OnInit {
         }
     })
     }
-  
+
 }
 
 export interface DialogData {
