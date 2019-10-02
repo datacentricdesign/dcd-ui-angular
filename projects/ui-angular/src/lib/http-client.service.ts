@@ -73,7 +73,7 @@ export class HttpClientService {
     // Call the http POST
     return this.http.post(url,body,httpOptions).pipe(
       map(this.extractData),
-      this.delayedRetry(1000,3),
+      this.delayedRetry(60000,0),
       catchError(this.handleError)
     );
 }
@@ -112,11 +112,11 @@ export class HttpClientService {
 private getErrorMessage = (maxRetry : number) => `Tried to load Resource over XHR for ${maxRetry} times without sucess. Giving up.`;
 
 DEFAULT_MAX_RETRIES = 5;
-  
+
 private delayedRetry(delayMs : number, maxRetry = this.DEFAULT_MAX_RETRIES) {
   let retries = maxRetry;
 
-  return (src : Observable<any>) => 
+  return (src : Observable<any>) =>
   src.pipe(
     retryWhen((errors:Observable<any>)=> errors.pipe(
       delay(delayMs),
@@ -128,7 +128,7 @@ private delayedRetry(delayMs : number, maxRetry = this.DEFAULT_MAX_RETRIES) {
 
 
 
-    
+
 
 
 }

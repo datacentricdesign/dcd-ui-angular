@@ -1,6 +1,6 @@
 {
   "name": "dcd-ui-angular",
-  "version": "0.1.3-dev",
+  "version": "0.1.4-dev",
   "scripts": {
     "ng": "ng",
     "start": "npm uninstall @datacentricdesign/ui-angular && npm run build-lib && npm install dist/ui-angular && ng serve",
