@@ -34,14 +34,14 @@
                                                              </thead>
                                                              <tbody>
                                                                      <tr *ngFor="let property of thing.properties; index as i" >
-                                                                             <td>{{property.name}}</td>
+                                                                             <td>{{property.name}} ({{property.id}})</td>
                                                                              <td>{{property.type}}</td>
                                                                              <td>
                                                                              <button mat-icon-button color = "primary" (click)="showDialog_property(property)"  >
                                                                               <i class="fas fa-clone" ></i>
                                                                               </button>
                                                                              </td>
-                                                                             
+
                                                                          </tr>
                                                              </tbody>
                                                            </table>
@@ -64,7 +64,7 @@
  </div>
 
 
-<p-dialog [(header)]="property_picked.name" [(visible)]="display_property" [modal]="true" [responsive]="true" [style]="{width: '60%', minWidth: '700px'}" 
+<p-dialog [(header)]="property_picked.name" [(visible)]="display_property" [modal]="true" [responsive]="true" [style]="{width: '60%', minWidth: '700px'}"
      [maximizable]="true" [baseZIndex]="10000">
 
      <div>

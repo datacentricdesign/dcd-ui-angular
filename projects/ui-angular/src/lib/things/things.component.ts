@@ -102,37 +102,39 @@ export class ThingsComponent implements OnInit {
     }
 
     add_thing(thing:Thing){
-      this.service.post('api/things?jwt='+true,thing.json()).subscribe(
+      this.service.post('api/things',thing.json()).subscribe(
         data => {
         const newthing : Thing  = new Thing(data['thing'])
         this.things.push(newthing)
-        const jwt : string = data['thing'].keys.jwt
-        this.openDialogJWT(newthing,jwt)
+        // const jwt : string = data['thing'].keys.jwt
+        // this.openDialogJWT(newthing,jwt)
       })
     }
 
-    openDialogJWT(thing:Thing,jwt:string): void {
-      const dialogRef = this.dialog.open(DialogJWT, {
-        width: '250px',
-        data: {thing:thing,jwt:jwt}
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-
-      });
-    }
+    // openDialogJWT(thing:Thing,jwt:string): void {
+    //   const dialogRef = this.dialog.open(DialogJWT, {
+    //     width: '250px',
+    //     data: {thing:thing,jwt:jwt}
+    //   });
+    //
+    //   dialogRef.afterClosed().subscribe(result => {
+    //
+    //   });
+    // }
 
     openDialogAddThing(): void {
       const dialogRef = this.dialog.open(DialogAddThing, {
         width: '250px',
-        data: {name: '', type: '',description:''}
+        data: {name: '', type: '', description:'', pem: ''}
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        if(result){this.add_thing(new Thing({
+        if(result){
+          this.add_thing(new Thing({
           name : result.name,
           type : result.type,
-          description : result.description
+          description : result.description,
+          pem : result.pem
         }))}
       });
     }
@@ -178,28 +180,36 @@ export interface DialogData {
   description:string;
   thing:Thing;
   jwt:string;
+  pem:string;
 }
 
 @Component({
   selector: 'dialog-add-thing',
   template: `
-  <h1 mat-dialog-title>Add Thing</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.name" placeholder="Name">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.type" placeholder="Type">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.description" placeholder="Description">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button *ngIf = "data.name" mat-button [mat-dialog-close]="data" cdkFocusInitial>Create</button>
-</div>
-`
+      <h1 mat-dialog-title>Add Thing</h1>
+      <div mat-dialog-content>
+          <mat-form-field>
+              <input matInput [(ngModel)]="data.name" placeholder="Name">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput [(ngModel)]="data.type" placeholder="Type">
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput [(ngModel)]="data.description"
+                     placeholder="Description">
+          </mat-form-field>
+          <mat-form-field>
+              <textarea rows="15" cols="70" matInput [(ngModel)]="data.pem"
+                        placeholder="Your public key starting with -----BEGIN PUBLIC KEY-----"></textarea>
+          </mat-form-field>
+      </div>
+      <div mat-dialog-actions>
+          <button mat-button (click)="onNoClick()">No Thanks</button>
+          <button *ngIf="data.name && data.pem" mat-button
+                  [mat-dialog-close]="data" cdkFocusInitial>Create
+          </button>
+      </div>
+  `
 })
 export class DialogAddThing {
 

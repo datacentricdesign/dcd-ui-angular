@@ -32,6 +32,7 @@ export class Thing {
     name: string;
     description: string;
     type: string
+    pem: string
     properties: Property[] = [];
 
    constructor(params : {}) {
@@ -43,6 +44,10 @@ export class Thing {
        this.name = params['name']
        this.description = params['description']
        this.type = params['type']
+
+       if (params['pem'] !== undefined) {
+         this.pem = params['type']
+       }
 
        if(params['properties'] instanceof Array){
         params['properties'].forEach(property => {
@@ -73,6 +78,7 @@ export class Thing {
        id : this.id,
        name : this.name,
        type : this.type,
+       pem : this.pem,
        description: this.description,
        properties : this.properties_to_array()
        }
@@ -284,14 +290,14 @@ export class Task {
     id : string
     name: string;
     types:string[];
-    from : number 
-    to : number 
+    from : number
+    to : number
     description:string
     registered_at:number
     actor_entity_id : string
 
     resources : Resource[] = []
-  
+
     constructor(params:{},resources:any[] = undefined){
         if(!params){
             throw new TypeError('Task : constructor param is undefined or null')
@@ -340,7 +346,7 @@ export class Task {
     getDate():Date{
     return new Date(this.registered_at)
     }
-  
+
 }
 
 export class Resource {
@@ -348,7 +354,7 @@ export class Resource {
     id : string
     task_id: string;
     milestones:Milestone[] = []
-  
+
     constructor(params:{}){
         if(!params){
             throw new TypeError('Resource : constructor param is undefined or null')
