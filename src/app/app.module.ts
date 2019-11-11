@@ -9,9 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component'
 
-//TO DELETE
-import { VerticalTimelineModule } from 'angular-vertical-timeline';
-import {UiAngularModule} from "../../projects/ui-angular/src/lib/ui-angular.module";
+import {UiAngularModule} from "../../projects/ui-angular/src/dcd/ui-angular.module";
 
 @NgModule({
   declarations: [
@@ -29,8 +27,6 @@ import {UiAngularModule} from "../../projects/ui-angular/src/lib/ui-angular.modu
       {path: '404', component: NotFoundComponent},
       {path: '**', redirectTo: '404'}
     ]),
-    //TO DELETE
-    VerticalTimelineModule,
     UiAngularModule
   ],
   providers: [],

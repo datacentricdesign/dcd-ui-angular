@@ -2,14 +2,14 @@
 import { Bundler } from 'scss-bundle';
 import { writeFile } from 'fs-extra';*/
 
-const path = require('path')
+const path = require('path');
 const scssbundle = require('scss-bundle');
-const fsextra = require('fs-extra')
+const fsextra = require('fs-extra');
 
 /** Bundles all SCSS files into a single file */
 async function bundleScss() {
   const { found, bundledContent, imports } = await new scssbundle.Bundler()
-    .Bundle('./src/_theme.scss', ['./src/**/*.scss']);
+    .bundle('./src/_theme.scss', ['./src/**/*.scss']);
 
   if (imports) {
     const cwd = process.cwd();
@@ -29,4 +29,6 @@ async function bundleScss() {
   }
 }
 
-bundleScss();
+bundleScss().catch( error => {
+  console.log(error);
+});

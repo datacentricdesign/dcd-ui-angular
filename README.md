@@ -5,10 +5,10 @@
 ![NPM](https://img.shields.io/npm/l/@datacentricdesign/ui-angular)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@datacentricdesign/ui-angular)
 
-A set of Angular components to facilitate the design of web app for the 
-Data-Centric Design Hub.
+A set of Angular components to facilitate the design of web application
+with the Data-Centric Design Hub.
 
-## Intallation
+## Installation
 - `npm uninstall @datacentricdesign/ui-angular`
 - `npm install`
 - `cd project/ui-angular` & `npm install`
@@ -16,9 +16,9 @@ Data-Centric Design Hub.
 ## Build and start
 
 - `npm run start`
-- Go to http://localhost:4200/
+- Go to http://localhost:npm 4200/
 
-## UI angular library developement
+## UI angular library development
 
 Run `ng generate component component-name --project ui-angular` to generate a new 
 component. You can also use `ng generate directive|pipe|service|class|guard|interface

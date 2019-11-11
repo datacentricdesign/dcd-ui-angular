@@ -2,8 +2,8 @@
  * Public API Surface of ui-angular
  */
 
-export * from './lib/ui-angular.service';
-export * from './lib/ui-angular.component';
-export * from './lib/ui-angular.module';
-export * from './lib/classes'
-export * from './lib/http-client.service'
+export * from './dcd/ui-angular.service';
+export * from './dcd/ui-angular.component';
+export * from './dcd/ui-angular.module';
+export * from './dcd/classes'
+export * from './dcd/http-client.service'

@@ -29,22 +29,21 @@ import {UiAngularModule} from '@datacentricdesign/ui-angular'
 ### Add style and script 
 
 ```json
-"styles": [
-    "src/styles.css",
-    "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-
-    //ADD -->
-    "./node_modules/primeicons/primeicons.css",
-    "./node_modules/primeng/resources/themes/nova-light/theme.css",
-    "./node_modules/primeng/resources/primeng.min.css",
-    "./node_modules/@fortawesome/fontawesome-free/css/all.css",
-    "./node_modules/angular-vertical-timeline/dist/vertical-timeline.css",
-    "./node_modules/@datacentricdesign/ui-angular/_theme.scss"
-            ],
-"scripts": [
-    "./node_modules/@fortawesome/fontawesome-free/js/all.js",
-            ]
-    //<--
+{
+    "styles": [
+        "src/styles.css",
+        "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+        "./node_modules/primeicons/primeicons.css",
+        "./node_modules/primeng/resources/themes/nova-light/theme.css",
+        "./node_modules/primeng/resources/primeng.min.css",
+        "./node_modules/@fortawesome/fontawesome-free/css/all.css",
+        "./node_modules/angular-vertical-timeline/dist/vertical-timeline.css",
+        "./node_modules/@datacentricdesign/ui-angular/_theme.scss"
+    ],
+    "scripts": [
+        "./node_modules/@fortawesome/fontawesome-free/js/all.js"
+    ]
+}
 ```
 
 
@@ -76,43 +75,43 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js'
 
 ### Charts Components
 
-#### Radar Chart
 
-(Property 3+ dimensions) Diplay a radar chart with the property values, dimensions and type.
+#### Properties of 1 dimension
+
+Display a line chart with the property values, dimensions.
+
+```html        
+<dcd-property-one-dimension
+    [property_values] = "property.values"
+    [property_dimensions] = "property.dimensions">
+</dcd-property-one-dimension>
+```
+
+#### Properties of 2 dimensions
+
+Display a double axis line chart with the property values, dimensions.
 
 ```html
-<lib-radar-chart 
+<dcd-property-two-dimensions
+    [property_values] = "property.values"
+    [property_dimensions] = "property.dimensions" >
+</dcd-property-two-dimensions>
+```
+
+#### Properties of 3 dimensions and more
+
+Display a radar chart with the property values, dimensions and type.
+
+```html
+<dcd-property-x-dimensions 
     [property_values] = "property.values"
     [property_dimensions] = "property.dimensions" 
     [property_type] = "property.type">
-</lib-radar-chart>
+</dcd-property-x-dimensions>
 ```
 
 
-
-#### Line Chart
-
-(Property 1 dimensions) Diplay a line chart with the property values, dimensions.
-
-```html        
-<lib-line-chart 
-    [property_values] = "property.values"
-    [property_dimensions] = "property.dimensions">
-</lib-line-chart>
-```
-
-#### Double dimensions Chart
-
-(Property 2 dimensions) Diplay a double axis line chart with the property values, dimensions.
-
-```html
-<lib-double-dimensions-chart 
-    [property_values] = "property.values"
-    [property_dimensions] = "property.dimensions" >
-</lib-double-dimensions-chart>
-```
-
-#### Google Maps
+#### Properties of type 'LOCATION'
 
 Call defineCustomElements(window) from main.ts
 
@@ -126,13 +125,13 @@ Call defineCustomElements(window) from main.ts
 We need also a google map API key `apiKey` and a boolean `checked` if you want to refresh the map each changes (for example for real time value) else there is a button refresh.
 
 ```html
-<lib-google-maps 
+<dcd-property-location
     [property_values] = "property.values"
     [property_dimensions] ="property.dimensions" 
     [property_entity_id] ="property.entity_id"  
     [apiKey]="XXXXXXXXXXXXXXXX" 
     [checked]="false">
-</lib-google-maps>
+</dcd-property-location>
 ```
 
 
@@ -140,7 +139,7 @@ We need also a google map API key `apiKey` and a boolean `checked` if you want t
 
 These components works correctly only with an angular universal project with a server-side rendering.
 Use the [Javascript SDK](https://www.npmjs.com/package/@datacentricdesign/sdk-js) to setup your server with the DCD Oauth2 strategy and the routerAPI.
-Exemple [here](https://github.com/datacentricdesign/dcd-data-subject) 
+Example [here](https://github.com/datacentricdesign/dcd-data-subject) 
 
 #### Property
 
@@ -149,10 +148,10 @@ Display the property with right charts and the values
 - Setup a get `'/mapsKey'`route for google maps.
 
 ```html
-<lib-property 
+<dcd-property 
     [property]="property" 
     [rangeTime] = "rangeTime">
-</lib-property>
+</dcd-property>
 ```
 
 ```ts
@@ -186,7 +185,7 @@ property = new Property({
 Display the thing with a line chart for all the dimensions values and all the properties
 
 ```html
-<lib-thing [thing]="thing" [rangeTime] = "rangeTime" ></lib-thing>
+<dcd-thing [thing]="thing" [rangeTime] = "rangeTime" ></dcd-thing>
 ```
 
 ```ts 
@@ -211,7 +210,7 @@ thing = new Thing({
 Display all your personnal things of the hub.
 
 ```html
-<lib-things></lib-thing>
+<dcd-things></dcd-thing>
 ```
 
 #### Data Types
@@ -219,7 +218,7 @@ Display all your personnal things of the hub.
 Display all the properties sorted by types
 
 ```html
-<lib-data-types [properties]="properties"></lib-data-types>
+<dcd-data-types [properties]="properties"></dcd-data-types>
 ```
 
 ```ts
@@ -239,7 +238,7 @@ properties = [
 Display all the properties sorted by data collections
 
 ```html
-<lib-data-collections [properties]="properties"></lib-data-collections>
+<dcd-data-collections [properties]="properties"></dcd-data-collections>
 ```
 
 
