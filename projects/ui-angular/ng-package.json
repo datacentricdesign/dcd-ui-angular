@@ -4,20 +4,20 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "primeng/slider" : "primengSlider",
-      "primeng/dialog" : "primengDialog",
+      "primeng/slider": "primengSlider",
+      "primeng/dialog": "primengDialog",
       "primeng/calendar": "primengCalendar",
-      "primeng/checkbox" : "primengCheckbox",
-      "primeng/inputtext" : "primengInputText",
-      "@ng-bootstrap/ng-bootstrap" : "ngBootstrap",
-      "ng2-charts" : "ng2Charts",
-      "@swimlane/ngx-charts":"ngxCharts",
-      "@swimlane/ngx-charts/release/utils":"ngxChartsReleaseUtils",
+      "primeng/checkbox": "primengCheckbox",
+      "primeng/inputtext": "primengInputText",
+      "@ng-bootstrap/ng-bootstrap": "ngBootstrap",
+      "ng2-charts": "ng2Charts",
+      "@swimlane/ngx-charts": "ngxCharts",
+      "@swimlane/ngx-charts/release/utils": "ngxChartsReleaseUtils",
       "ngx-clipboard": "ngxClipboard",
-      "d3-scale":"d3Scale",
-      "d3-shape":"d3shape",
-      "web-google-maps":"webGoogleMaps",
-      "angular-vertical-timeline":"verticalTimeline"
+      "d3-scale": "d3Scale",
+      "d3-shape": "d3shape",
+      "web-google-maps": "webGoogleMaps",
+      "angular-vertical-timeline": "verticalTimeline"
     }
   },
   "whitelistedNonPeerDependencies": [
@@ -34,6 +34,8 @@
     "bootstrap",
     "@ng-bootstrap/ng-bootstrap",
     "angular-vertical-timeline",
-    "d3-timelines"
+    "d3-timelines",
+    "angular-annotorious",
+    "font-awesome"
   ]
 }

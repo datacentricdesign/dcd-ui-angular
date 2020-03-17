@@ -1,0 +1,57 @@
+img {
+  width: 150px;
+}
+
+.lightbox-example,
+.gallerize-example {
+  margin: 2em;
+}
+
+.label-body {
+  border-color: blue;
+  border-style: solid;
+  border-width: 1px;
+
+  position: absolute;
+  bottom: 10px;
+
+}
+
+#imageGallery {
+  background: none;
+}
+
+#itemTemplate {
+  border-color: red;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.data-container {
+  display: table;
+  text-align: center;
+  padding: 5px;
+  width: 100%
+}
+
+.data-container-i {
+  display: table-cell;
+}
+
+.input-container {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.date-slider-container {
+  margin-top: 2%;
+}
+
+.button-refresh-container {
+  margin-top: 2%;
+  text-align: center;
+}
+
+.date-container {
+  text-align: center
+}

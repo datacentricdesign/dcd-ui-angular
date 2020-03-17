@@ -1,63 +1,72 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import {RouterModule} from '@angular/router';
-import {FormsModule} from '@angular/forms';
-import { DatePipe } from '@angular/common'
+import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
+import { DatePipe } from "@angular/common";
 
 //@angular/material
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatInputModule} from '@angular/material';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatButtonModule } from "@angular/material/button";
+import { MatTableModule } from "@angular/material/table";
+import { MatSelectModule } from "@angular/material/select";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatInputModule } from "@angular/material";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
 
 //prime-ng
-import {SliderModule} from 'primeng/slider';
-import {DialogModule} from 'primeng/dialog';
-import {CalendarModule} from 'primeng/calendar';
-import {CheckboxModule} from 'primeng/checkbox';
-import {InputTextModule} from 'primeng/inputtext';
+import { SliderModule } from "primeng/slider";
+import { DialogModule } from "primeng/dialog";
+import { CalendarModule } from "primeng/calendar";
+import { CheckboxModule } from "primeng/checkbox";
+import { InputTextModule } from "primeng/inputtext";
 
 //Bootstrap
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 //ng2-charts
-import { ChartsModule } from 'ng2-charts';
-import { PropertyOneDimensionComponent } from './property-one-dimension/property-one-dimension.component';
+import { ChartsModule } from "ng2-charts";
+import { PropertyOneDimensionComponent } from "./property-one-dimension/property-one-dimension.component";
 
 //@swimlane/ngx-charts
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 //ngx-clipboard
-import { ClipboardModule } from 'ngx-clipboard';
+import { ClipboardModule } from "ngx-clipboard";
 
 //Google Maps
-import { CUSTOM_ELEMENTS_SCHEMA} from '@angular/core'
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 //Http
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from "@angular/common/http";
 
 //Vertical timeline
-import { VerticalTimelineModule } from 'angular-vertical-timeline';
+import { VerticalTimelineModule } from "angular-vertical-timeline";
 
 //Components
-import { UiAngularComponent } from './ui-angular.component';
-import { DoubleAxisChartComponent } from './double-axis-chart/double-axis-chart.component';
-import { PropertyXDimensionsComponent } from './property-x-dimensions/property-x-dimensions.component';
-import { PropertyTwoDimensionsComponent } from './property-two-dimensions/property-two-dimensions.component';
-import { PropertyLocationComponent } from './property-location/property-location.component';
-import { PropertyComponent } from './property/property.component';
-import { PropertyVideoComponent } from './property-video/property-video.component';
-import { PropertyClassComponent } from './property-class/property-class.component';
-import { PropertyTextComponent } from './property-text/property-text.component';
-import { PersonComponent } from './person/person.component';
-import { DialogExportData, ThingComponent} from './thing/thing.component';
-import { ThingsComponent, DialogAddThing, DialogAddProperty, DialogJWT} from './things/things.component'
-import { DataCollectionsComponent } from './data-collections/data-collections.component';
-import { SearchComponent } from './search/search.component';
-import { DataTypesComponent } from './data-types/data-types.component';
+import { UiAngularComponent } from "./ui-angular.component";
+import { DoubleAxisChartComponent } from "./double-axis-chart/double-axis-chart.component";
+import { PropertyXDimensionsComponent } from "./property-x-dimensions/property-x-dimensions.component";
+import { PropertyTwoDimensionsComponent } from "./property-two-dimensions/property-two-dimensions.component";
+import { PropertyLocationComponent } from "./property-location/property-location.component";
+import { PropertyComponent } from "./property/property.component";
+import { PropertyVideoComponent } from "./property-video/property-video.component";
+import { PropertyClassComponent } from "./property-class/property-class.component";
+import { PropertyTextComponent } from "./property-text/property-text.component";
+import { PersonComponent } from "./person/person.component";
+import { DialogExportData, ThingComponent } from "./thing/thing.component";
+import {
+  ThingsComponent,
+  DialogAddThing,
+  DialogAddProperty,
+  DialogJWT
+} from "./things/things.component";
+import { DataCollectionsComponent } from "./data-collections/data-collections.component";
+import { SearchComponent } from "./search/search.component";
+import { DataTypesComponent } from "./data-types/data-types.component";
+import { PropertyImagesComponent } from "./property-images/property-images.component";
+import { GalleryModule } from "@ngx-gallery/core";
+import { LightboxModule } from "@ngx-gallery/lightbox";
+import { LIGHTBOX_CONFIG } from "@ngx-gallery/lightbox";
 
 @NgModule({
   declarations: [
@@ -81,12 +90,13 @@ import { DataTypesComponent } from './data-types/data-types.component';
     SearchComponent,
     PersonComponent,
     DataTypesComponent,
-    PropertyTextComponent
+    PropertyTextComponent,
+    PropertyImagesComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forRoot([
-      {path : 'page/thing', component: ThingComponent, pathMatch : "full"},
+      { path: "page/thing", component: ThingComponent, pathMatch: "full" }
     ]),
     SliderModule,
     ChartsModule,
@@ -108,7 +118,9 @@ import { DataTypesComponent } from './data-types/data-types.component';
     NgbModule,
     FormsModule,
     VerticalTimelineModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    GalleryModule,
+    LightboxModule
   ],
   exports: [
     UiAngularComponent,
@@ -125,8 +137,10 @@ import { DataTypesComponent } from './data-types/data-types.component';
     SearchComponent,
     PropertyVideoComponent,
     PropertyClassComponent,
-    PersonComponent
+    PersonComponent,
+    PropertyImagesComponent
   ],
+
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
     DialogAddThing,
@@ -134,6 +148,14 @@ import { DataTypesComponent } from './data-types/data-types.component';
     DialogAddProperty,
     DialogJWT
   ],
-  providers: [DatePipe]
+  providers: [
+    DatePipe,
+    {
+      provide: LIGHTBOX_CONFIG,
+      useValue: {
+        keyboardShortcuts: false
+      }
+    }
+  ]
 })
-export class UiAngularModule { }
+export class UiAngularModule {}

@@ -1,0 +1,88 @@
+<!-- <div
+  *ngFor="let values of property_values; let i = index"
+  class="data-container-i"
+>
+  <img
+    [attr.src]="values[1]"
+    data-original="stable-identifier-for-image"
+    annotorious-annotate
+  />
+</div> -->
+
+<!-- <img
+  src="http://annotorious.github.io/img/splash-image-1.jpg"
+  annotorious-annotate
+/> -->
+<!-- <div *ngFor="let image of property_values; let i = index">
+  <img [src]="image[1]" (click)="open(i)" />
+</div> -->
+<!-- <div class="gallerize-example">
+  <div class="container">
+    <img
+      *ngFor="let item of items; index as i"
+      [lightbox]="i"
+      [src]="item.data.thumb"
+    />
+  </div>
+</div> -->
+
+<div class="gallery-container">
+  <gallery
+    #galleryId
+    id="imageGallery"
+    [thumb]="false"
+    [loop]="false"
+    [counter]="false"
+  >
+  </gallery>
+</div>
+<div *ngIf="showData">
+  <div class="date-container">{{ date }}</div>
+  <div class="input-container">
+    <!-- <dcd-property-class></dcd-property-class> -->
+    <input
+      #labelInput
+      (keyup.enter)="onInputEnter(labelInput.value)"
+      placeholder="Enter New Label for this Image"
+    />
+  </div>
+  <div class="data-container">
+    <div
+      *ngFor="let values of property_values; let i = index"
+      class="data-container-i"
+    >
+      {{ property_values[index_slider][i + 2] }}
+    </div>
+    <div *ngFor="let label of newLabel" class="data-container-i">
+      {{ label }}
+    </div>
+  </div>
+  <div *ngIf="!checked" class="date-slider-container">
+    <p-slider
+      [(ngModel)]="index_slider"
+      [style]="{ width: '100%' }"
+      (onChange)="handleChange($event)"
+      [(max)]="sliderSize"
+      [(step)]="step_count"
+    >
+    </p-slider>
+  </div>
+</div>
+
+<!-- <gallery id="imageGallery" [itemTemplate]="itemTemplate"></gallery>
+<ng-template #itemTemplate let-index="index" let-type="type" let-data="data" let-currIndex="currIndex">
+  <div class="label-body">
+    <form>
+      <ul>
+        <li *ngIf="type === 'image' && index === currIndex" class="item-text">
+          {{ data?.title }}
+        </li>
+      </ul>
+      <input type="text" id="imgLable" name="imgLable" class="form-control" placeholder="Enter new label for this image"
+        [(ngModel)]="newLabel" />
+      <button type="submit" class="btn btn-success" (click)="onSubmit()">
+        Submit
+      </button>
+    </form>
+  </div>
+</ng-template> -->
