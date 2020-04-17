@@ -10,7 +10,7 @@ if (environment.production) {
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+  .catch((err) => console.error(err));
 
 import { defineCustomElements as defineCustomElementsGoogleMaps } from "web-google-maps/dist/loader"; //Map
 

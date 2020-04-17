@@ -58,7 +58,8 @@ import {
   ThingsComponent,
   DialogAddThing,
   DialogAddProperty,
-  DialogJWT
+  DialogJWT,
+  DialogAddPem,
 } from "./things/things.component";
 import { DataCollectionsComponent } from "./data-collections/data-collections.component";
 import { SearchComponent } from "./search/search.component";
@@ -86,17 +87,18 @@ import { LIGHTBOX_CONFIG } from "@ngx-gallery/lightbox";
     DialogExportData,
     DialogAddProperty,
     DialogJWT,
+    DialogAddPem,
     DataCollectionsComponent,
     SearchComponent,
     PersonComponent,
     DataTypesComponent,
     PropertyTextComponent,
-    PropertyImagesComponent
+    PropertyImagesComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forRoot([
-      { path: "page/thing", component: ThingComponent, pathMatch: "full" }
+      { path: "page/thing", component: ThingComponent, pathMatch: "full" },
     ]),
     SliderModule,
     ChartsModule,
@@ -120,7 +122,7 @@ import { LIGHTBOX_CONFIG } from "@ngx-gallery/lightbox";
     VerticalTimelineModule,
     MatProgressBarModule,
     GalleryModule,
-    LightboxModule
+    LightboxModule,
   ],
   exports: [
     UiAngularComponent,
@@ -138,7 +140,7 @@ import { LIGHTBOX_CONFIG } from "@ngx-gallery/lightbox";
     PropertyVideoComponent,
     PropertyClassComponent,
     PersonComponent,
-    PropertyImagesComponent
+    PropertyImagesComponent,
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -146,16 +148,17 @@ import { LIGHTBOX_CONFIG } from "@ngx-gallery/lightbox";
     DialogAddThing,
     DialogExportData,
     DialogAddProperty,
-    DialogJWT
+    DialogJWT,
+    DialogAddPem,
   ],
   providers: [
     DatePipe,
     {
       provide: LIGHTBOX_CONFIG,
       useValue: {
-        keyboardShortcuts: false
-      }
-    }
-  ]
+        keyboardShortcuts: false,
+      },
+    },
+  ],
 })
 export class UiAngularModule {}

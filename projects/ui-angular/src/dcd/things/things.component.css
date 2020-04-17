@@ -1,52 +1,61 @@
-.thing-container{
-    display: inline-table;
-    width: 100%;
-    margin-left: 1%
+.thing-container {
+  display: inline-table;
+  width: 100%;
+  margin-left: 1%
 }
-.thing-card{
-    display: table-row;
-    width: 46%;
-    float:left;
-    margin-left: 2%
+
+.thing-card {
+  display: table-row;
+  width: 46%;
+  float: left;
+  margin-left: 2%
 }
 
 table {
-    width: 100%;
-  }
-
-.thing_buttons{
-    text-align: right;
+  width: 100%;
 }
-.card-body{
+
+.thing_buttons {
+  text-align: right;
+}
+
+.card-body {
   height: 200px;
 }
 
-.thing_table{
+.thing_table {
   height: 200px;
   overflow: auto;
 }
 
-.property_description{
+.property_description {
   float: left;
 }
 
-.thing_header{
-  display : table;
-  width:  100%
+.thing_header {
+  display: table;
+  width: 100%
 }
+
 .thing_title {
   display: table-cell;
 }
+
 .thing_nav {
   display: table-cell;
   float: right;
 }
-.add-thing{
+
+.add-thing {
   text-align: center;
   margin-bottom: 1%;
   width: 100%;
 }
 
-input{
+.thing_download {
+  float: right;
+}
+
+input {
   margin-top: 1%
 }

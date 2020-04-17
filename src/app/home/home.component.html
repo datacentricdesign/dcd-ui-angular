@@ -2,30 +2,41 @@
 
 <div class="component-container">
   <h3>Property with 1 Dimension</h3>
-  <dcd-property-one-dimension [property_values]="data_1d_property.values"
-    [property_dimensions]="data_1d_property.dimensions">
+  <dcd-property-one-dimension
+    [property_values]="data_1d_property.values"
+    [property_dimensions]="data_1d_property.dimensions"
+  >
   </dcd-property-one-dimension>
 </div>
 
 <div class="component-container">
   <h3>Property with 2 Dimensions</h3>
-  <dcd-property-two-dimensions [property_values]="data_2d_property.values"
-    [property_dimensions]="data_2d_property.dimensions">
+  <dcd-property-two-dimensions
+    [property_values]="data_2d_property.values"
+    [property_dimensions]="data_2d_property.dimensions"
+  >
   </dcd-property-two-dimensions>
 </div>
 
 <div class="component-container">
   <h3>Property with 3 Dimensions or more</h3>
-  <dcd-property-x-dimensions [property_values]="data_3d_property.values"
-    [property_dimensions]="data_3d_property.dimensions" [property_type]="data_3d_property.type">
+  <dcd-property-x-dimensions
+    [property_values]="data_3d_property.values"
+    [property_dimensions]="data_3d_property.dimensions"
+    [property_type]="data_3d_property.type"
+  >
   </dcd-property-x-dimensions>
 </div>
 
 <div class="component-container">
   <h3>Property Location</h3>
-  <dcd-property-location [property_values]="data_location_property.values"
-    [property_dimensions]="data_location_property.dimensions" [property_entity_id]="data_location_property.entity_id"
-    [apiKey]="apiKey" [checked]="false">
+  <dcd-property-location
+    [property_values]="data_location_property.values"
+    [property_dimensions]="data_location_property.dimensions"
+    [property_entity_id]="data_location_property.entity_id"
+    [apiKey]="apiKey"
+    [checked]="false"
+  >
   </dcd-property-location>
 </div>
 
@@ -42,8 +53,11 @@
 
 <div class="component-container">
   <h3>Property Images</h3>
-  <dcd-property-images [property_values]="data_images_property.values"
-    [property_dimensions]="data_images_property.dimensions" [checked]="false"></dcd-property-images>
+  <dcd-property-images
+    [property_values]="data_images_property.values"
+    [property_dimensions]="data_images_property.dimensions"
+    [checked]="false"
+  ></dcd-property-images>
 </div>
 
 <!-- These components work correctly only with a SSR setup with the OAuth2 strategy & routerAPI of the sdk js

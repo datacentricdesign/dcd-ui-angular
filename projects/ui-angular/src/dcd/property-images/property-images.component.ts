@@ -7,7 +7,7 @@ import {
   ElementRef,
   AfterContentInit,
   Inject,
-  PLATFORM_ID
+  PLATFORM_ID,
 } from "@angular/core";
 import { Gallery, GalleryRef } from "@ngx-gallery/core";
 import { isPlatformBrowser, isPlatformServer } from "@angular/common";
@@ -15,7 +15,7 @@ import { isPlatformBrowser, isPlatformServer } from "@angular/common";
 @Component({
   selector: "dcd-property-images",
   templateUrl: "./property-images.component.html",
-  styleUrls: ["./property-images.component.css"]
+  styleUrls: ["./property-images.component.css"],
 })
 export class PropertyImagesComponent implements OnInit, AfterContentInit {
   @Input() property_values: any[];
@@ -62,16 +62,16 @@ export class PropertyImagesComponent implements OnInit, AfterContentInit {
       //<-- if browser
       this.data = this.property_values;
 
-      this.data.map(item =>
+      this.data.map((item) =>
         this.galleryRef.addImage({
           src: item[1],
           thumb: item[1],
-          title: item[2]
+          title: item[2],
         })
       );
 
       const gIndexObservable = this.galleryRef.indexChanged;
-      gIndexObservable.subscribe(data => {
+      gIndexObservable.subscribe((data) => {
         this.index_slider = data.currIndex;
       });
     }
@@ -124,6 +124,6 @@ export class PropertyImagesComponent implements OnInit, AfterContentInit {
   }
 
   onSubmit() {
-    this.data.map(item => item[2].push(this.newLabel.toString()));
+    this.data.map((item) => item[2].push(this.newLabel.toString()));
   }
 }

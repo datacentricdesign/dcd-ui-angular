@@ -5,7 +5,7 @@ import { environment } from "../../environments/environment";
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.css"]
+  styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
   constructor() {}
@@ -29,15 +29,15 @@ export class HomeComponent implements OnInit {
       [this.ts_0 + 4000, 5],
       [this.ts_1, 3],
       [this.ts_1 + 2000, 2],
-      [this.ts_1 + 4000, 0]
+      [this.ts_1 + 4000, 0],
     ],
     dimensions: [
       {
         name: "Speed",
         description: "",
-        unit: ""
-      }
-    ]
+        unit: "",
+      },
+    ],
   };
 
   // Demo 2D property component variable
@@ -52,20 +52,20 @@ export class HomeComponent implements OnInit {
       [this.ts_0 + 4000, 2, 7],
       [this.ts_1, 5, 9],
       [this.ts_1 + 2000, 9, 8],
-      [this.ts_1 + 4000, 1, 9]
+      [this.ts_1 + 4000, 1, 9],
     ],
     dimensions: [
       {
         name: "Heart Rate",
         description: "Heart rate in beats per minutes",
-        unit: "BPM"
+        unit: "BPM",
       },
       {
         name: "RR-Interval",
         description: "RR-Interval in seconds",
-        unit: "s"
-      }
-    ]
+        unit: "s",
+      },
+    ],
   };
 
   // Demo property 3d component variable
@@ -80,29 +80,29 @@ export class HomeComponent implements OnInit {
       [this.ts_0 + 4000, 0, 8, 5],
       [this.ts_1, 1, 2, 3],
       [this.ts_1 + 2000, 3, 4, 5],
-      [this.ts_1 + 4000, 5, 3, 1]
+      [this.ts_1 + 4000, 5, 3, 1],
     ],
     dimensions: [
       {
         name: "x",
         description:
           "Acceleration force that is applied to a device on physical axe x, including the force of gravity.",
-        unit: "m/s2"
+        unit: "m/s2",
       },
       {
         name: "y",
         description:
           "Acceleration force that is applied to a device on physical axe y, including the force of gravity.",
-        unit: "m/s2"
+        unit: "m/s2",
       },
       {
         name: "z",
         description:
           "Acceleration force that is applied to a device on physical axe z, including the force of gravity.",
-        unit: "m/s2"
-      }
+        unit: "m/s2",
+      },
     ],
-    entity_id: "my-thing"
+    entity_id: "my-thing",
   };
 
   // Location property component variables
@@ -116,21 +116,21 @@ export class HomeComponent implements OnInit {
       [this.ts_0, 52.018, 4.379],
       [this.ts_1, 52.0185, 4.3795],
       [this.ts_1, 52.0187, 4.3797],
-      [this.ts_1, 52.0189, 4.3799]
+      [this.ts_1, 52.0189, 4.3799],
     ],
     dimensions: [
       {
         name: "Longitude",
         description: "",
-        unit: "°"
+        unit: "°",
       },
       {
         name: "Latitude",
         description: "",
-        unit: "°"
-      }
+        unit: "°",
+      },
     ],
-    entity_id: "my-thing"
+    entity_id: "my-thing",
   };
 
   // Text Property component variables
@@ -144,16 +144,16 @@ export class HomeComponent implements OnInit {
       [this.ts_0 + 4000, "{code: 2, message: 'Connection dropped'}"],
       [this.ts_1, "{code: 0, message: 'Connected!'}"],
       [this.ts_1 + 2000, "{code: 0, message: 'Received message'}"],
-      [this.ts_1 + 4000, "{code: 0, message: 'Disconnected'}"]
+      [this.ts_1 + 4000, "{code: 0, message: 'Disconnected'}"],
     ],
     dimensions: [
       {
         name: "Text",
         description: "",
-        unit: ""
-      }
+        unit: "",
+      },
     ],
-    entity_id: "my-thing"
+    entity_id: "my-thing",
   };
 
   // Images Property component variables
@@ -172,20 +172,20 @@ export class HomeComponent implements OnInit {
       [
         this.ts_1 + 4000,
         "https://placeimg.com/640/480/arch",
-        ["architecture_2"]
+        ["architecture_2"],
       ],
       [this.ts_1 + 6000, "https://placeimg.com/640/480/nature", ["nature_2"]],
-      [this.ts_1 + 8000, "https://placeimg.com/640/480/people", ["people_2"]]
+      [this.ts_1 + 8000, "https://placeimg.com/640/480/people", ["people_2"]],
     ],
     dimensions: [
       {
         name: "label",
         description: "",
         // tslint:disable-next-line: quotemark
-        unit: ""
-      }
+        unit: "",
+      },
     ],
-    entity_id: "my-thing"
+    entity_id: "my-thing",
   };
 
   // Property component variable
@@ -197,7 +197,7 @@ export class HomeComponent implements OnInit {
     name: "name_thing_1",
     description: "description of the thing 1",
     type: "type_thing_1",
-    properties: [this.property, new Property(this.data_3d_property)]
+    properties: [this.property, new Property(this.data_3d_property)],
   });
 
   // Things component variable
@@ -210,16 +210,16 @@ export class HomeComponent implements OnInit {
       type: "type_thing_2",
       properties: [
         new Property(this.data_1d_property),
-        new Property(this.data_location_property)
-      ]
-    })
+        new Property(this.data_location_property),
+      ],
+    }),
   ];
 
   //Property Types component variable
   properties = [
     new Property(this.data_1d_property),
     new Property(this.data_location_property),
-    new Property(this.data_3d_property)
+    new Property(this.data_3d_property),
   ];
 
   ngOnInit() {}
