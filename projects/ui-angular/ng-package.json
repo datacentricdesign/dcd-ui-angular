@@ -36,6 +36,9 @@
     "angular-vertical-timeline",
     "d3-timelines",
     "angular-annotorious",
-    "font-awesome"
+    "font-awesome",
+    "@ngx-gallery/core",
+    "@ngx-gallery/lightbox",
+    "ngx-lightbox"
   ]
 }
